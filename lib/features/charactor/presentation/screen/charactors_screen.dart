@@ -19,7 +19,7 @@ class _CharactorsScreenState extends State<CharactorsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Image.asset('assets/icon/back_icon.png'),
-                const Text('Charactors'),
+                const Text('Charactorsb here us rge '),
                 Image.asset('assets/icon/forward_icon.png'),
               ],
             ),
