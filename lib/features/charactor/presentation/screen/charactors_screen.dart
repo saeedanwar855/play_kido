@@ -14,6 +14,7 @@ class _CharactorsScreenState extends State<CharactorsScreen> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 10,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,7 +24,8 @@ class _CharactorsScreenState extends State<CharactorsScreen> {
                 Image.asset('assets/icon/forward_icon.png'),
               ],
             ),
-            const Text('Choose Charactor'),
+            const Text('Choose Charactor fro the bellow '),
+            const SizedBox(height: 20),
             SingleChildScrollView(
               child: Row(
                 children: List.generate(10, (index) => const CharactorCard()),
