@@ -8,11 +8,33 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          const CustomHeader(),
-          const SubjectsGrid(),
-          Image.asset('assets/icon/grass.png'),
+          Stack(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 80),
+                child: SubjectsGrid(),
+              ),
+              const CustomHeader(),
+              Positioned(
+                bottom: 0,
+                child: Image.asset(
+                  'assets/icon/grass.png',
+                  width: MediaQuery.sizeOf(context).width,
+                ),
+              ),
+            ],
+          ),
+          Positioned(
+            bottom: 10,
+            right: 0,
+            child: Image.asset(
+              'assets/character/captain_majid.png',
+              height: 280,
+              width: 200,
+            ),
+          ),
         ],
       ),
     );

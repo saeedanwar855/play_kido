@@ -1,9 +1,10 @@
 // lib/main_layout.dart
 import 'package:flutter/material.dart';
-import 'package:play_kido/core/theme/app_colors.dart';
 import 'package:play_kido/features/charactor/presentation/screen/charactors_screen.dart';
 import 'package:play_kido/features/home/screen/custom_bottom_nev_bar.dart';
 import 'package:play_kido/features/home/screen/home_screen.dart';
+import 'package:play_kido/features/score/presentation/screen/score_screen.dart';
+import 'package:play_kido/features/tracking/presentation/screen/tracking_screen.dart';
 
 class CustomNevBarScreen extends StatefulWidget {
   const CustomNevBarScreen({super.key});
@@ -17,13 +18,9 @@ class _CustomNevBarScreenState extends State<CustomNevBarScreen> {
 
   final List<Widget> _screens = [
     const HomePage(),
-    const CharactorsScreen(),
-    Container(
-      color: AppColors.blueberry,
-    ),
-    Container(
-      color: AppColors.blueberry,
-    ),
+    const CharactersScreen(),
+    const ScoreScreen(),
+    const TrackingScreen(),
   ];
 
   void onPageChanged(int index) {

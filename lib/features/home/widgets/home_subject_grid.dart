@@ -1,60 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabits_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
   const SubjectsGrid({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(15),
-        child: GridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 15,
-          crossAxisSpacing: 15,
-          children: [
-            _buildSubjectCard(
-              'Alphabets',
-              'assets/icon/abc.png',
-              const Color(0xFF49B3FF),
-              context,
-            ),
-            _buildSubjectCard(
-              'Numbers',
-              'assets/icon/number.png',
-              const Color(0xFF6B4CE6),
-              context,
-            ),
-            _buildSubjectCard(
-              'Shapes',
-              'assets/icon/shape.png',
-              const Color(0xFF2E7D32),
-              context,
-            ),
-            _buildSubjectCard(
-              'Maths',
-              'assets/icon/maths.png',
-              const Color(0xFFE91E63),
-              context,
-            ),
-            _buildSubjectCard(
-              'Arts',
-              'assets/icon/arts.png',
-              const Color(0xFF26A69A),
-              context,
-            ),
-          ],
-        ),
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.all(15),
+      child: GridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 15,
+        children: [
+          _buildSubjectCard(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+              );
+            },
+            'Alphabets',
+            'assets/icon/abcds.jpg',
+            const Color(0xFF49B3FF),
+            context,
+          ),
+          _buildSubjectCard(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+              );
+            },
+            'Numbers',
+            'assets/icon/1234.jpeg',
+            const Color(0xFF6B4CE6),
+            context,
+          ),
+          _buildSubjectCard(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+              );
+            },
+            'Shapes',
+            'assets/icon/shapes.jpg',
+            const Color(0xFF2E7D32),
+            context,
+          ),
+          _buildSubjectCard(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+              );
+            },
+            'Maths',
+            'assets/icon/maths.png',
+            const Color(0xFFE91E63),
+            context,
+          ),
+          _buildSubjectCard(
+            'Arts',
+            'assets/icon/kids_art.jpg',
+            const Color(0xFF26A69A),
+            context,
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildSubjectCard(String title, String imageUrl, Color color, BuildContext context) {
+  Widget _buildSubjectCard(
+    String title,
+    String imageUrl,
+    Color color,
+    BuildContext context, {
+    VoidCallback? onTap,
+  }) {
     return GestureDetector(
-      onTap: () {
-        // Add navigation logic here
-      },
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: color,
