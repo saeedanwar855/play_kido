@@ -27,6 +27,7 @@ class _CharactorsScreenState extends State<CharactorsScreen> {
             const Text('Choose Charactor fro the bellow '),
             const SizedBox(height: 20),
             SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(10, (index) => const CharactorCard()),
               ),
@@ -46,6 +47,7 @@ class CharactorCard extends StatelessWidget {
     return Container(
       width: MediaQuery.sizeOf(context).width / 4,
       height: MediaQuery.sizeOf(context).width / 4,
+      margin: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         // border: Border.all(width: 2, color: Colors.amber),
