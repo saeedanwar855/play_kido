@@ -51,7 +51,7 @@ flutter:
         - asset: assets/poppins/Poppins-Bold.ttf
           weight: 700
 
-flutter_intl:  # Added for localization
+flutter_intl:  
   enabled: true
   class_name: AppLocalizations
   main_locale: en
