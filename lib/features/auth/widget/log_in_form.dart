@@ -7,7 +7,7 @@ class KidLoginForm extends StatefulWidget {
   const KidLoginForm({super.key});
 
   @override
-  _KidLoginFormState createState() => _KidLoginFormState();
+  State<KidLoginForm> createState() => _KidLoginFormState();
 }
 
 class _KidLoginFormState extends State<KidLoginForm> with SingleTickerProviderStateMixin {
