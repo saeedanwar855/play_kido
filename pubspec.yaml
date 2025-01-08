@@ -7,10 +7,12 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  audioplayers: ^6.1.0
   bloc: ^8.1.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
+  flutter_gen_runner: ^5.8.0
   flutter_localizations:
     sdk: flutter
   intl: ^0.19.0
@@ -22,6 +24,7 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.4
   very_good_analysis: ^6.0.0
+  build_runner: ^2.4.8  # Added for code generation
 
 flutter:
   uses-material-design: true
@@ -33,7 +36,9 @@ flutter:
     - assets/icon/
     - assets/character/
     - assets/letters/
-
+    - assets/sounds/
+    - assets/animated_alphabits/
+  
   fonts:
     - family: Poppins
       fonts:
@@ -45,3 +50,10 @@ flutter:
           weight: 600
         - asset: assets/poppins/Poppins-Bold.ttf
           weight: 700
+
+flutter_intl:  # Added for localization
+  enabled: true
+  class_name: AppLocalizations
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/gen

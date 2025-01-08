@@ -7,138 +7,142 @@ class TrackingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Back Button
-              GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Image.asset(
-                  'assets/icon/back_icon.png',
-                  height: 30,
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fitHeight,
+              image: AssetImage(
+                'assets/icon/bg.jpg',
+              ),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset(
+                    'assets/icon/back_icon.png',
+                    height: 30,
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              // Title
-              const Text(
-                'Tracking',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+                const Text(
+                  'Tracking',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              // Kids Activity Status
-              const Text(
-                'Kids Activity Status',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                const Text(
+                  'Kids Activity Status',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              // Weekly Overview Section
-              Column(
-                children: [
-                  const Text(
-                    'Weekly overview',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  const Text(
-                    'April 10 - April 17',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  // Weekly Chart
-                  SizedBox(
-                    height: 150,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: _buildWeeklyBars(),
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 30),
-
-              // Progress Visibility Section
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Progress visibility',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'View more',
+                Column(
+                  children: [
+                    const Text(
+                      'Weekly overview',
                       style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const Text(
+                      'April 10 - April 17',
+                      style: TextStyle(
+                        fontSize: 16,
                         color: Colors.grey,
                       ),
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 150,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: _buildWeeklyBars(),
+                      ),
+                    ),
+                  ],
+                ),
 
-              const SizedBox(height: 10),
+                const SizedBox(height: 30),
 
-              // Progress Bars
-              _buildProgressBar(
-                context,
-                'Alphabets',
-                0.28,
-                Colors.blue.shade200,
-                'assets/icon/abc_icon.png',
-                'assets/character/captain_majid.png',
-              ),
-              const SizedBox(height: 10),
-              _buildProgressBar(
-                context,
-                'Numbers',
-                0.42,
-                const Color(0xFFD2B48C),
-                'assets/icon/kite_icon.png',
-                'assets/character/chota_bheem.png',
-              ),
-              const SizedBox(height: 10),
-              _buildProgressBar(
-                context,
-                'Maths',
-                0.89,
-                Colors.lightGreen.shade200,
-                'assets/icon/count_icon.png',
-                'assets/character/oggy.png',
-              ),
-              const SizedBox(height: 10),
-              _buildProgressBar(
-                context,
-                'Shapes',
-                0.19,
-                Colors.purple.shade200,
-                'assets/icon/shapes_icon.png',
-                'assets/character/singham.png',
-              ),
-            ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Progress visibility',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'View more',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 10),
+
+                // Progress Bars
+                _buildProgressBar(
+                  context,
+                  'Alphabets',
+                  0.28,
+                  Colors.blue.shade200,
+                  'assets/icon/abc_icon.png',
+                  'assets/character/captain_majid.png',
+                ),
+                const SizedBox(height: 10),
+                _buildProgressBar(
+                  context,
+                  'Numbers',
+                  0.42,
+                  const Color(0xFFD2B48C),
+                  'assets/icon/kite_icon.png',
+                  'assets/character/chota_bheem.png',
+                ),
+                const SizedBox(height: 10),
+                _buildProgressBar(
+                  context,
+                  'Maths',
+                  0.89,
+                  Colors.lightGreen.shade200,
+                  'assets/icon/count_icon.png',
+                  'assets/character/oggy.png',
+                ),
+                const SizedBox(height: 10),
+                _buildProgressBar(
+                  context,
+                  'Shapes',
+                  0.19,
+                  Colors.purple.shade200,
+                  'assets/icon/shapes_icon.png',
+                  'assets/character/singham.png',
+                ),
+              ],
+            ),
           ),
         ),
       ),

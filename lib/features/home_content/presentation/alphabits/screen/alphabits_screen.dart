@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play_kido/core/size_config/size_config.dart';
 
 class AlphabitsScreen extends StatefulWidget {
   const AlphabitsScreen({super.key});
@@ -77,8 +78,8 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
                       width: 250,
                     ),
                     Container(
-                      height: 200,
-                      width: 200,
+                      height: SizeConfig.getHeight(30),
+                      width: SizeConfig.getWidth(30),
                       margin: const EdgeInsets.symmetric(horizontal: 5),
                       decoration: BoxDecoration(
                         border: Border.all(

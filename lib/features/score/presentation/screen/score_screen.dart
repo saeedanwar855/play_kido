@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play_kido/core/size_config/size_config.dart';
 
 class ScoreScreen extends StatefulWidget {
   const ScoreScreen({super.key});
@@ -31,237 +32,247 @@ class _ScoreScreenState extends State<ScoreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    child: Image.asset(
-                      'assets/icon/back_icon.png',
-                      height: 60,
-                    ),
-                  ),
-                  const Text(
-                    'Score Board',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple,
-                    ),
-                  ),
-                  const SizedBox(width: 24), // For symmetry
-                ],
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fitHeight,
+              image: AssetImage(
+                'assets/icon/bg.jpg',
               ),
             ),
-            const SizedBox(height: 20),
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Image.asset(
-                  'assets/icon/base.png',
-                  height: 216,
-                  width: MediaQuery.sizeOf(context).width,
-                ),
-                const Positioned(
-                  bottom: 0,
-                  left: 65,
-                  right: 0,
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            'cemy',
-                            style: TextStyle(
-                              color: Color(0xff894d14),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                          ),
-                          Text(
-                            '850',
-                            style: TextStyle(
-                              color: Color(0xff894d14),
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                const Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 50,
-                  child: Column(
-                    children: [
-                      Text(
-                        'cemy',
-                        style: TextStyle(
-                          color: Color(0xff894d14),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        '850',
-                        style: TextStyle(
-                          color: Color(0xff894d14),
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Positioned(
-                  left: 0,
-                  right: 70,
-                  bottom: -6,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            'cemy',
-                            style: TextStyle(
-                              color: Color(0xff894d14),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                          ),
-                          Text(
-                            '850',
-                            style: TextStyle(
-                              color: Color(0xff894d14),
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                const Positioned(
-                  bottom: 60,
-                  left: 50,
-                  child: ScoreProfile(),
-                ),
-                const Positioned(
-                  bottom: 110,
-                  left: 200,
-                  // right: 0,
-                  child: ScoreProfile(),
-                ),
-                const Positioned(
-                  bottom: 50,
-                  right: 60,
-                  child: ScoreProfile(),
-                ),
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              decoration: const BoxDecoration(
-                color: Color(0xFFFFB974),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                ),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Text(
-                        'Rank',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                    GestureDetector(
+                      child: Image.asset(
+                        'assets/icon/back_icon.png',
+                        height: SizeConfig.getHeight(8),
                       ),
                     ),
-                    Expanded(
-                      flex: 2,
-                      child: Text(
-                        'Name',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                    const Text(
+                      'Score Board',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
                       ),
                     ),
-                    Expanded(
-                      child: Text(
-                        'Points',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
+                    const SizedBox(width: 24), // For symmetry
                   ],
                 ),
               ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: scores.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFFFF5EC),
+              const SizedBox(height: 20),
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Image.asset(
+                    'assets/icon/base.png',
+                    height: SizeConfig.getHeight(21),
+                    width: MediaQuery.sizeOf(context).width,
+                  ),
+                  const Positioned(
+                    bottom: 0,
+                    left: 65,
+                    right: 0,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              'cemy',
+                              style: TextStyle(
+                                color: Color(0xff894d14),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                              ),
+                            ),
+                            Text(
+                              '850',
+                              style: TextStyle(
+                                color: Color(0xff894d14),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              scores[index].rank.toString(),
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
+                  ),
+                  const Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 50,
+                    child: Column(
+                      children: [
+                        Text(
+                          'cemy',
+                          style: TextStyle(
+                            color: Color(0xff894d14),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
                           ),
-                          Expanded(
-                            flex: 2,
-                            child: Text(
-                              scores[index].name,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
+                        ),
+                        Text(
+                          '850',
+                          style: TextStyle(
+                            color: Color(0xff894d14),
+                            fontSize: 16,
                           ),
-                          Expanded(
-                            child: Text(
-                              scores[index].points.toString(),
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  );
-                },
+                  ),
+                  const Positioned(
+                    left: 0,
+                    right: 70,
+                    bottom: -6,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              'cemy',
+                              style: TextStyle(
+                                color: Color(0xff894d14),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                              ),
+                            ),
+                            Text(
+                              '850',
+                              style: TextStyle(
+                                color: Color(0xff894d14),
+                                fontSize: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Positioned(
+                    bottom: 45,
+                    left: 50,
+                    child: ScoreProfile(),
+                  ),
+                  const Positioned(
+                    bottom: 95,
+                    left: 200,
+                    // right: 0,
+                    child: ScoreProfile(),
+                  ),
+                  const Positioned(
+                    bottom: 35,
+                    right: 60,
+                    child: ScoreProfile(),
+                  ),
+                ],
               ),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFFFB974),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'Rank',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Text(
+                          'Name',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Text(
+                          'Points',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: scores.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFFFF5EC),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                scores[index].rank.toString(),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Text(
+                                scores[index].name,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Text(
+                                scores[index].points.toString(),
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -284,8 +295,8 @@ class ScoreProfile extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: 80,
-          height: 100,
+          width: SizeConfig.getWidth(16),
+          height: SizeConfig.getHeight(16),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -296,7 +307,7 @@ class ScoreProfile extends StatelessWidget {
               image: NetworkImage(
                 'https://thumbs.dreamstime.com/b/beautiful-toddler-boy-profile-109342.jpg',
               ),
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         ),
@@ -305,8 +316,8 @@ class ScoreProfile extends StatelessWidget {
           right: 0,
           left: 5,
           child: Container(
-            width: 50,
-            height: 50,
+            width: SizeConfig.getWidth(10),
+            height: SizeConfig.getHeight(10),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -325,13 +336,12 @@ class ScoreProfile extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: -45,
+          top: -30,
           right: 0,
           left: 0,
           child: Image.asset(
             'assets/icon/crown.png',
-            height: 70,
-            width: 70,
+            height: SizeConfig.getWidth(20),
           ),
         ),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/features/home/widgets/home_header_widegt.dart';
 import 'package:play_kido/features/home/widgets/home_subject_grid.dart';
 
@@ -8,34 +9,46 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Stack(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 80),
-                child: SubjectsGrid(),
-              ),
-              const CustomHeader(),
-              Positioned(
-                bottom: 0,
-                child: Image.asset(
-                  'assets/icon/grass.png',
-                  width: MediaQuery.sizeOf(context).width,
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            bottom: 10,
-            right: 0,
-            child: Image.asset(
-              'assets/character/captain_majid.png',
-              height: 280,
-              width: 200,
+      body: Container(
+        width: SizeConfig.screenWidth,
+        height: SizeConfig.screenHeight,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fitHeight,
+            image: AssetImage(
+              'assets/icon/bg.jpg',
             ),
           ),
-        ],
+        ),
+        child: Stack(
+          children: [
+            const Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 80),
+                  child: SubjectsGrid(),
+                ),
+                CustomHeader(),
+              ],
+            ),
+            Positioned(
+              bottom: 0,
+              child: Image.asset(
+                'assets/icon/grass.png',
+                width: SizeConfig.getWidth(100),
+              ),
+            ),
+            Positioned(
+              bottom: 10,
+              right: 40,
+              child: Image.asset(
+                'assets/character/captain_majid.png',
+                height: SizeConfig.getHeight(30),
+                width: SizeConfig.getWidth(30),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

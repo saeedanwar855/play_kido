@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/charactor/presentation/widget/charactor_card.dart';
 
@@ -34,6 +35,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
   @override
   void initState() {
     super.initState();
+    // _playSound();
     _pageController = PageController(initialPage: currentIndex);
   }
 
@@ -81,117 +83,132 @@ class _CharactersScreenState extends State<CharactersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            Expanded(
-              flex: 2,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  PageView.builder(
-                    controller: _pageController,
-                    physics: const NeverScrollableScrollPhysics(), // Disable swipe
-                    itemCount: characters.length,
-                    itemBuilder: (context, index) {
-                      return AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              characters[index].imagePath,
-                              height: 300,
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              characters[index].name,
-                              style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.deepPurple,
-                              ),
-                            ),
-                            Text(
-                              characters[index].description,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.deepPurple,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () => changeCharacter(next: false),
-                        child: Image.asset(
-                          'assets/icon/back_icon.png',
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => changeCharacter(next: true),
-                        child: Image.asset(
-                          'assets/icon/forward_icon.png',
-                          width: 100,
-                          height: 80,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fitHeight,
+              image: AssetImage(
+                'assets/icon/bg.jpg',
               ),
             ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-                  const Text(
-                    'Choose Your Learning Buddy!',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepPurple,
-                    ),
-                  ),
-                  Expanded(
-                    child: GridView.builder(
-                      padding: const EdgeInsets.all(16),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                      ),
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Expanded(
+                flex: 2,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    PageView.builder(
+                      controller: _pageController,
+                      physics: const NeverScrollableScrollPhysics(), // Disable swipe
                       itemCount: characters.length,
                       itemBuilder: (context, index) {
-                        return CharacterCard(
-                          character: characters[index],
-                          onTap: () {
-                            setState(() {
-                              currentIndex = index;
-                              _pageController.animateToPage(
-                                index,
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            });
-                          },
+                        return AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                characters[index].imagePath,
+                                height: 300,
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                characters[index].name,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple,
+                                ),
+                              ),
+                              Text(
+                                characters[index].description,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.deepPurple,
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       },
                     ),
-                  ),
-                ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () => changeCharacter(next: false),
+                          child: Image.asset(
+                            'assets/icon/back_icon.png',
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () => changeCharacter(next: true),
+                          child: Image.asset(
+                            'assets/icon/forward_icon.png',
+                            width: 100,
+                            height: 80,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    const Text(
+                      'Choose Your Learning Buddy!',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                        padding: const EdgeInsets.all(16),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                        ),
+                        itemCount: characters.length,
+                        itemBuilder: (context, index) {
+                          return CharacterCard(
+                            character: characters[index],
+                            onTap: () {
+                              setState(() {
+                                currentIndex = index;
+                                _pageController.animateToPage(
+                                  index,
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              });
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
+}
+
+Future<void> _playSound() async {
+  final player = AudioPlayer();
+  await player.play(AssetSource('sounds/sound_4.mp3'));
 }
 
 class CharacterData {

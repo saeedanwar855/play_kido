@@ -7,7 +7,6 @@ class SubjectsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       padding: const EdgeInsets.all(15),
       child: GridView.count(
         crossAxisCount: 2,
