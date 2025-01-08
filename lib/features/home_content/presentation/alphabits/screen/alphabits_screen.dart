@@ -9,38 +9,39 @@ class AlphabitsScreen extends StatefulWidget {
 
 class _AlphabitsScreenState extends State<AlphabitsScreen> {
   List<String> letters = [
-    'assets/letters/a.jpg',
-    'assets/letters/b.jpg',
-    'assets/letters/c.jpg',
-    'assets/letters/d.jpg',
-    'assets/letters/e.jpg',
-    'assets/letters/f.jpg',
-    'assets/letters/g.jpg',
-    'assets/letters/h.jpg',
-    'assets/letters/i.jpg',
-    'assets/letters/j.jpg',
-    'assets/letters/k.jpg',
-    'assets/letters/l.jpg',
-    'assets/letters/m.jpg',
-    'assets/letters/n.jpg',
-    'assets/letters/o.jpg',
-    'assets/letters/p.jpg',
-    'assets/letters/q.jpg',
-    'assets/letters/r.jpg',
-    'assets/letters/s.jpg',
-    'assets/letters/t.jpg',
-    'assets/letters/u.jpg',
-    'assets/letters/v.jpg',
-    'assets/letters/w.jpg',
-    'assets/letters/x.jpg',
-    'assets/letters/y.jpg',
-    'assets/letters/z.jpg',
+    'assets/letters/a.png',
+    'assets/letters/b.png',
+    'assets/letters/c.png',
+    'assets/letters/d.png',
+    'assets/letters/e.png',
+    'assets/letters/f.png',
+    'assets/letters/g.png',
+    'assets/letters/h.png',
+    'assets/letters/i.png',
+    'assets/letters/j.png',
+    'assets/letters/k.png',
+    'assets/letters/l.png',
+    'assets/letters/m.png',
+    'assets/letters/n.png',
+    'assets/letters/o.png',
+    'assets/letters/p.png',
+    'assets/letters/q.png',
+    'assets/letters/r.png',
+    'assets/letters/s.png',
+    'assets/letters/t.png',
+    'assets/letters/u.png',
+    'assets/letters/v.png',
+    'assets/letters/w.png',
+    'assets/letters/x.png',
+    'assets/letters/y.png',
+    'assets/letters/z.png',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
@@ -66,16 +67,46 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
                 ],
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: letters.length,
-                itemBuilder: (context, index) {
-                  return Image.asset(letters[index]);
-                },
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/letters/a.png',
+                      width: 250,
+                    ),
+                    Container(
+                      height: 200,
+                      width: 200,
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.deepPurple,
+                          width: 6,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Image.network(
+                        'https://img.freepik.com/premium-photo/3d-character-design-model-cherry-shape-style-naive_921860-171711.jpg?w=1380',
+                      ),
+                    ),
+                  ],
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      'Apple',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            // Image.asset('assets/letters/a.jpg'),
           ],
         ),
       ),
