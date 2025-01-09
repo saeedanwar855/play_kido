@@ -161,28 +161,26 @@ class _LogInScreenState extends State<LogInScreen> with TickerProviderStateMixin
   }
 
   Widget _buildParentAuthSection() {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            'Parents Corner',
-            style: TextStyle(
-              color: Colors.grey[700],
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      children: [
+        Text(
+          'Parents Corner',
+          style: TextStyle(
+            color: Colors.grey[700],
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
           ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildSocialButton('assets/icon/google_icon.png', () {}),
-              const SizedBox(width: 20),
-              _buildSocialButton('assets/icon/apple_icon.png', () {}),
-            ],
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildSocialButton('assets/icon/google_icon.png', () {}),
+            const SizedBox(width: 20),
+            _buildSocialButton('assets/icon/apple_icon.png', () {}),
+          ],
+        ),
+      ],
     );
   }
 
