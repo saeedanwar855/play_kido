@@ -4,5 +4,8 @@
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
     },
-    "welcome": "Welcome to\nPlay Kido!"
+    "welcome": "Welcome to\nPlay Kido!",
+    "@welcome": {
+        "description": "Text shown in the Welcome Page"
+    }
 }

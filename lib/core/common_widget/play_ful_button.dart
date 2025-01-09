@@ -82,7 +82,7 @@ class _PlayfulButtonState extends State<PlayfulButton> with SingleTickerProvider
               color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              fontFamily: 'Comic Sans MS',
+              fontFamily: 'ComicSans',
             ),
           ),
         ),

@@ -1,6 +1,23 @@
 {
     "@@locale": "ar",
     "hello": "مرحبا",
+    "@hello": {
+        "description": "النص المعروض في الصفحة الرئيسية"
+    },
+    "helloText": "مرحبا بك\nمرحبا بك!",
+    "@helloText": {
+        "description": "النص المعروض في الصفحة الرئيسية"
+    },
+    "counterAppBarTitle": "عداد",
+    "@counterAppBarTitle": {
+        "description": "النص المعروض في شريط التحكم لصفحة العداد"
+    },
     "welcome": "مرحبًا بك في تطبيقنا",
-    "welcomeText": "Play Kido\nمیں خوش آمدید!"
+    "@welcome": {
+        "description": "النص المعروض في الصفحة الرئيسية"
+    },
+    "welcomeText": "Play Kido\nمیں خوش آمدید!",
+    "@welcomeText": {
+        "description": "النص المعروض في الصفحة الرئيسية"
+    }
 }

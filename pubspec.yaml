@@ -38,6 +38,8 @@ flutter:
     - assets/letters/
     - assets/sounds/
     - assets/animated_alphabits/
+    - assets/audio_alphabet/
+    - assets/plain_alphabet/
   
   fonts:
     - family: Poppins
@@ -50,6 +52,9 @@ flutter:
           weight: 600
         - asset: assets/poppins/Poppins-Bold.ttf
           weight: 700
+    - family: ComicSans
+      fonts:
+        - asset: assets/poppins/comic-sans.ttf
 
 flutter_intl:  
   enabled: true
