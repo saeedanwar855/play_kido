@@ -1,7 +1,8 @@
+import 'package:animated_widgets/animated_widgets.dart';
+import 'package:animated_widgets/widgets/shake_animated_widget.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/common_widget/animated_pop_widget.dart';
-import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabits_screen.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/phonics_screen.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/game_volume_button.dart';
@@ -18,7 +19,7 @@ class _AlphabitViewScreenState extends State<AlphabitViewScreen> with TickerProv
   bool isPlaying = false;
   final AudioPlayer _audioPlayer = AudioPlayer();
   final String audioPath = 'audio_alphabet/A.wav';
-
+  bool isShakeEnable = false;
   late AnimationController _controller;
 
   @override
@@ -39,7 +40,10 @@ class _AlphabitViewScreenState extends State<AlphabitViewScreen> with TickerProv
       await _controller.forward().then((_) => _controller.reverse());
 
       _audioPlayer.onPlayerComplete.listen((_) {
-        setState(() => isPlaying = false);
+        setState(() {
+          isPlaying = false;
+          isShakeEnable = true;
+        });
       });
     } catch (e) {
       debugPrint('Error playing sound: $e');
@@ -74,6 +78,15 @@ class _AlphabitViewScreenState extends State<AlphabitViewScreen> with TickerProv
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // ShakeAnimatedWidget(
+                    //   enabled: isShakeEnable,
+                    //   duration: const Duration(milliseconds: 4000),
+                    //   shakeAngle: Rotation.deg(z: 40),
+                    //   child: AnimatedTapIcon(
+                    //     onTap: _playSound,
+                    //     child: Image.asset('assets/letters/a.png'),
+                    //   ),
+                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 35),
                       child: AnimatedTapIcon(

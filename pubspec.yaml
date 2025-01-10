@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  animated_widgets: ^1.1.0
   audioplayers: ^6.1.0
   bloc: ^8.1.4
   flutter:
@@ -40,6 +41,7 @@ flutter:
     - assets/animated_alphabits/
     - assets/audio_alphabet/
     - assets/plain_alphabet/
+    - assets/phonics_things/
   
   fonts:
     - family: Poppins

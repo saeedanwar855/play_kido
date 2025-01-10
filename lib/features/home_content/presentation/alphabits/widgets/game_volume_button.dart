@@ -38,7 +38,7 @@ class _GameVolumeButtonState extends State<GameVolumeButton> with SingleTickerPr
             scale: 1.0 + (_controller.value * 0.2),
             child: Container(
               width: SizeConfig.getWidth(25),
-              height: SizeConfig.getHeight(25),
+              height: SizeConfig.getHeight(12),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
