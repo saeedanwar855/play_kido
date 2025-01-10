@@ -113,9 +113,10 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
 }
 
 class InteractiveButton extends StatefulWidget {
-  const InteractiveButton({required this.ontap, super.key});
+  const InteractiveButton({required this.ontap, this.buttonText = "Let's Play!", super.key});
 
   final VoidCallback ontap;
+  final String buttonText;
 
   @override
   State<InteractiveButton> createState() => _InteractiveButtonState();
@@ -184,9 +185,9 @@ class _InteractiveButtonState extends State<InteractiveButton> with SingleTicker
                       width: 32,
                     ),
                     const SizedBox(width: 12),
-                    const Text(
-                      "Let's Play!",
-                      style: TextStyle(
+                    Text(
+                      widget.buttonText,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,
                         fontWeight: FontWeight.bold,

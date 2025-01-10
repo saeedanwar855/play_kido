@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabits_screen.dart';
+import 'package:play_kido/features/home_content/presentation/numbers/screen/number_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
   const SubjectsGrid({super.key});
@@ -29,7 +30,7 @@ class SubjectsGrid extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const NumberScreen()),
               );
             },
             'Numbers',

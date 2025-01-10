@@ -146,13 +146,14 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                       onTap: () {},
                     ),
                     InteractiveButton(
+                      buttonText: 'Next',
                       ontap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<PhonicsScreen>(
-                            builder: (context) => const PhonicsScreen(),
-                          ),
-                        );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute<PhonicsScreen>(
+                        //     builder: (context) => const PhonicsScreen(),
+                        //   ),
+                        // );
                       },
                     ),
                   ],
