@@ -88,7 +88,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
             image: DecorationImage(
               fit: BoxFit.fitHeight,
               image: AssetImage(
-                'assets/icon/bg.jpg',
+                'assets/icon/7.jpg',
               ),
             ),
           ),
@@ -121,6 +121,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.deepPurple,
+                                  fontFamily: 'ComicSans',
                                 ),
                               ),
                               Text(
@@ -128,6 +129,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                                 style: const TextStyle(
                                   fontSize: 16,
                                   color: Colors.deepPurple,
+                                  fontFamily: 'ComicSans',
                                 ),
                               ),
                             ],
@@ -167,6 +169,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.deepPurple,
+                        fontFamily: 'ComicSans',
                       ),
                     ),
                     Expanded(
@@ -180,6 +183,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                         itemCount: characters.length,
                         itemBuilder: (context, index) {
                           return CharacterCard(
+                            index: index,
                             character: characters[index],
                             onTap: () {
                               setState(() {

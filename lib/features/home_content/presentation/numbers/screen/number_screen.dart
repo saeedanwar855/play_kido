@@ -63,6 +63,7 @@ class _NumberScreenState extends State<NumberScreen> with TickerProviderStateMix
           child: Column(
             children: [
               KidsAppHeader(
+                isBack: true,
                 title: ' Alphabets',
                 onBackPress: () => Navigator.pop(context),
               ),

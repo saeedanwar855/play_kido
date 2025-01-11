@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
-import 'package:play_kido/features/home/widgets/home_header_widegt.dart';
 import 'package:play_kido/features/home/widgets/home_subject_grid.dart';
+import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,45 +9,50 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: SizeConfig.screenWidth,
-        height: SizeConfig.screenHeight,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/icon/backg.jpeg',
+      body: SafeArea(
+        child: Container(
+          width: SizeConfig.screenWidth,
+          height: SizeConfig.screenHeight,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                'assets/icon/bg.jpeg',
+              ),
             ),
           ),
-        ),
-        child: Stack(
-          children: [
-            const Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 80),
-                  child: SubjectsGrid(),
+          child: Stack(
+            children: [
+              Stack(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 80),
+                    child: SubjectsGrid(),
+                  ),
+                  KidsAppHeader(
+                    title: ' Home',
+                    onBackPress: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+              Positioned(
+                bottom: 0,
+                child: Image.asset(
+                  'assets/icon/grass.png',
+                  width: SizeConfig.getWidth(100),
                 ),
-                CustomHeader(),
-              ],
-            ),
-            Positioned(
-              bottom: 0,
-              child: Image.asset(
-                'assets/icon/grass.png',
-                width: SizeConfig.getWidth(100),
               ),
-            ),
-            Positioned(
-              bottom: 10,
-              right: 40,
-              child: Image.asset(
-                'assets/character/captain_majid.png',
-                height: SizeConfig.getHeight(30),
-                width: SizeConfig.getWidth(30),
+              Positioned(
+                bottom: 10,
+                right: 40,
+                child: Image.asset(
+                  'assets/character/captain_majid.png',
+                  height: SizeConfig.getHeight(30),
+                  width: SizeConfig.getWidth(30),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

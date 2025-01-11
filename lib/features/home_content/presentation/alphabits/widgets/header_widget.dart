@@ -6,10 +6,12 @@ class KidsAppHeader extends StatelessWidget {
     required this.onBackPress,
     super.key,
     this.rightIcon,
+    this.isBack = false,
   });
   final String title;
   final VoidCallback onBackPress;
   final String? rightIcon;
+  final bool isBack;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class KidsAppHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildBackButton(),
+          if (isBack) _buildBackButton() else const SizedBox(),
           _buildTitle(),
           // _buildRightSection(),
           const SizedBox(),
@@ -99,11 +101,22 @@ class KidsAppHeader extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            'assets/icon/star.png',
-            height: 30,
+          const Text(
+            '🌟',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF6A39C4),
+              fontFamily: 'ComicSans',
+              shadows: [
+                Shadow(
+                  color: Colors.purple,
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 10),
           Text(
             title,
             style: const TextStyle(
@@ -121,9 +134,21 @@ class KidsAppHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Image.asset(
-            'assets/icon/star.png',
-            height: 30,
+          const Text(
+            '🌟',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF6A39C4),
+              fontFamily: 'ComicSans',
+              shadows: [
+                Shadow(
+                  color: Colors.purple,
+                  offset: Offset(1, 1),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -19,7 +19,7 @@ class _CustomNevBarScreenState extends State<CustomNevBarScreen> {
   final List<Widget> _screens = [
     const HomePage(),
     const CharactersScreen(),
-    const ScoreScreen(),
+    // const ScoreScreen(),
     const TrackingScreen(),
   ];
 

@@ -36,8 +36,8 @@ class CustomBottomNav extends StatelessWidget {
         children: [
           _buildNavItem('Home', 'assets/icon/home.png', 0),
           _buildNavItem('Characters', 'assets/icon/characters.png', 1),
-          _buildNavItem('Score', 'assets/icon/score.png', 2),
-          _buildNavItem('Tracking', 'assets/icon/tracking.png', 3),
+          // _buildNavItem('Score', 'assets/icon/score.png', 2),
+          _buildNavItem('Tracking', 'assets/icon/tracking.png', 2),
         ],
       ),
     );
@@ -67,6 +67,7 @@ class CustomBottomNav extends StatelessWidget {
               style: TextStyle(
                 color: isSelected ? Colors.white : Colors.white.withOpacity(0.7),
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                fontFamily: 'ComicSans',
               ),
             ),
           ],

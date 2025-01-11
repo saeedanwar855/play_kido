@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabits_screen.dart';
+import 'package:play_kido/features/home_content/presentation/alphabits/screen/phonics_screen.dart';
 import 'package:play_kido/features/home_content/presentation/numbers/screen/number_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
@@ -42,12 +43,12 @@ class SubjectsGrid extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const PhonicsScreen()),
               );
             },
-            'Shapes',
-            'assets/icon/shapes.jpg',
-            const Color(0xFF2E7D32),
+            'Phonics',
+            'assets/icon/phonics_bg.jpg',
+            const Color(0xFF26A69A),
             context,
           ),
           _buildSubjectCard(
@@ -63,9 +64,15 @@ class SubjectsGrid extends StatelessWidget {
             context,
           ),
           _buildSubjectCard(
-            'Arts',
-            'assets/icon/kids_art.jpg',
-            const Color(0xFF26A69A),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<AlphabitsScreen>(builder: (context) => const AlphabitsScreen()),
+              );
+            },
+            'Shapes',
+            'assets/icon/shapes.jpg',
+            const Color(0xFF2E7D32),
             context,
           ),
         ],
@@ -88,9 +95,9 @@ class SubjectsGrid extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: color.withOpacity(0.3),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
+              color: color.withOpacity(0.7),
+              blurRadius: 2,
+              offset: const Offset(0, 1),
             ),
           ],
         ),
@@ -123,6 +130,7 @@ class SubjectsGrid extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'ComicSans',
                     ),
                   ),
                 ),

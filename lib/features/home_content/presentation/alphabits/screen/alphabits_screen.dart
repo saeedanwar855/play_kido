@@ -1,9 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:play_kido/core/common_widget/play_ful_button.dart';
 import 'package:play_kido/features/home_content/data/alphabits_model/alphabit_model.dart';
 import 'package:play_kido/features/home_content/data/alphabits_model/alphabits_sounds.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabit_view_screen.dart';
+import 'package:play_kido/features/home_content/presentation/alphabits/widgets/game_volume_button.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
 
 class AlphabitsScreen extends StatefulWidget {
@@ -52,11 +52,11 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
         child: Column(
           children: [
             KidsAppHeader(
+              isBack: true,
               title: 'Alphabets',
               onBackPress: () => Navigator.pop(context),
               rightIcon: 'assets/icon/rewards_icon.png',
             ),
-
             Expanded(
               child: GridView.builder(
                 padding: const EdgeInsets.all(16),
@@ -93,18 +93,26 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
                 ),
               ),
             ),
-
-            InteractiveButton(
-              ontap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<AlphabitViewScreen>(
-                    builder: (context) => const AlphabitViewScreen(),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Row(
+                children: [
+                  GameVolumeButton(
+                    onTap: () {},
                   ),
-                );
-              },
+                  InteractiveButton(
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<AlphabitViewScreen>(
+                          builder: (context) => const AlphabitViewScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-            // Interactive Button
           ],
         ),
       ),

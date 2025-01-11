@@ -62,6 +62,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
           child: Column(
             children: [
               KidsAppHeader(
+                isBack: true,
                 title: ' Alphabets',
                 onBackPress: () => Navigator.pop(context),
               ),
