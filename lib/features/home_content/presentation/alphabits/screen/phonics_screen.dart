@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -99,7 +100,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
         }
       });
     } catch (e) {
-      print('Error playing audio: $e');
+      log('Error playing audio: $e');
       setState(() {
         isPlaying = false;
       });
@@ -184,7 +185,6 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                                 carouselController: _carouselController,
                                 items: letter.abbreviation.asMap().entries.map((entry) {
                                   final abbr = entry.value;
-                                  // final isCurrentItem = entry.key == currentAbbrivativeIndex;
                                   return Container(
                                     margin: const EdgeInsets.symmetric(horizontal: 5),
                                     child: Image.asset(
@@ -260,3 +260,123 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
     super.dispose();
   }
 }
+// Future<void> _playLetterSequence(PhonicsModel letter, int pageIndex) async {
+//   if (isPlaying) return;
+
+//   try {
+//     setState(() {
+//       isPlaying = true;
+//       currentAbbrivativeIndex = 0;
+//     });
+
+//     final soundPath = letter.sound.replaceAll('assets/', '');
+//     await _audioPlayer.play(AssetSource(soundPath));
+
+//     // Listen for audio completion
+//     _audioPlayer.onPlayerComplete.listen((_) {
+//       setState(() {
+//         isPlaying = false;
+//       });
+      
+//       // Move to next letter if not at the end
+//       if (pageIndex < model.length - 1) {
+//         _pageController.animateToPage(
+//           pageIndex + 1,
+//           duration: const Duration(milliseconds: 500),
+//           curve: Curves.easeInOut,
+//         );
+//       }
+//     });
+
+//     _animationTimer?.cancel();
+//     var currentSecond = 0;
+
+//     _animationTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+//       currentSecond++;
+
+//       for (var i = 0; i < letter.abbreviation.length; i++) {
+//         final abbr = letter.abbreviation[i];
+//         if (currentSecond >= abbr.startTime && currentSecond <= abbr.endTime) {
+//           if (currentAbbrivativeIndex != i) {
+//             setState(() {
+//               currentAbbrivativeIndex = i;
+//             });
+//             _carouselController.animateToPage(
+//               i,
+//               duration: const Duration(milliseconds: 300),
+//               curve: Curves.easeInOut,
+//             );
+//           }
+//           break;
+//         }
+//       }
+
+//       if (currentSecond > letter.abbreviation.last.endTime) {
+//         timer.cancel();
+//       }
+//     });
+//   } catch (e) {
+//     log('Error playing audio: $e');
+//     setState(() {
+//       isPlaying = false;
+//     });
+//   }
+// }
+
+
+// PageView.builder(
+//   controller: _pageController,
+//   itemCount: model.length,
+//   onPageChanged: (index) {
+//     setState(() {
+//       currentAbbrivativeIndex = 0; // Reset abbreviation index on page change
+//     });
+//   },
+//   itemBuilder: (context, index) {
+//     final letter = model[index];
+//     final currentAbbrivative = letter.abbreviation[currentAbbrivativeIndex];
+//     return Column(
+//       // ... rest of your existing column code ...
+//     );
+//   },
+// ),
+
+
+// GameVolumeButton(
+//   onTap: () {
+//     if (!isPlaying) {
+//       final currentPage = _pageController.page?.round() ?? 0;
+//       _playLetterSequence(model[currentPage], currentPage);
+//     }
+//   },
+// ),\
+
+
+// void playSpecificLetter(int index) {
+//   if (index >= 0 && index < model.length) {
+//     _pageController.animateToPage(
+//       index,
+//       duration: const Duration(milliseconds: 500),
+//       curve: Curves.easeInOut,
+//     );
+    
+//     // Wait for page animation to complete before playing
+//     Future.delayed(const Duration(milliseconds: 600), () {
+//       if (!isPlaying) {
+//         _playLetterSequence(model[index], index);
+//       }
+//     });
+//   }
+// }
+
+
+// @override
+
+// void dispose() {
+//   _popController.dispose();
+//   _audioPlayer.dispose();
+//   _animationTimer?.cancel();
+//   _carouselController.stopAutoPlay();
+//   _pageController.dispose();
+//   super.dispose();
+// }
