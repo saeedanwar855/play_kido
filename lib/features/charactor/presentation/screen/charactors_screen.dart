@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/features/charactor/presentation/widget/charactor_card.dart';
 
 class CharactersScreen extends StatefulWidget {
@@ -112,7 +113,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             children: [
                               Image.asset(
                                 characters[index].imagePath,
-                                height: 300,
+                                height: SizeConfig.getHeight(30),
                               ),
                               const SizedBox(height: 10),
                               Text(

@@ -16,7 +16,7 @@ class KidsAppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [
@@ -118,7 +118,7 @@ class KidsAppHeader extends StatelessWidget {
             ),
           ),
           Text(
-            title,
+            ' $title ',
             style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,

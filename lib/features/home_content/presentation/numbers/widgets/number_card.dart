@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play_kido/core/common_widget/animated_gaming_button.dart';
 
 class NumberCard extends StatefulWidget {
   const NumberCard({super.key});
@@ -15,11 +16,7 @@ class _NumberCardState extends State<NumberCard> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GamingButton(),
-            SizedBox(height: 20),
-            GamingBButton(),
-            SizedBox(height: 20),
-            GamingButtonBtn(),
+            AnimatedGamingButton(),
           ],
         ),
       ),

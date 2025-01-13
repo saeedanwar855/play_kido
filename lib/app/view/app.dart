@@ -40,7 +40,7 @@ class App extends StatelessWidget {
                   Locale('ar'),
                 ],
                 locale: state.locale,
-                home: const NumberCard(),
+                home: const CustomNevBarScreen(),
               );
             },
           ),

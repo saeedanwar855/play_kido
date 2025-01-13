@@ -10,6 +10,7 @@ dependencies:
   animated_widgets: ^1.1.0
   audioplayers: ^6.1.0
   bloc: ^8.1.4
+  carousel_slider: ^5.0.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
@@ -42,6 +43,7 @@ flutter:
     - assets/audio_alphabet/
     - assets/plain_alphabet/
     - assets/phonics_things/
+    - assets/alphabit_audio_sounds/
   
   fonts:
     - family: Poppins

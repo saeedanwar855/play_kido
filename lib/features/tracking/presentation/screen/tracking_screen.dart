@@ -303,19 +303,25 @@ class _TrackingScreenState extends State<TrackingScreen> with SingleTickerProvid
               colors: [Color(0xFFFFE0E0), Color(0xFFFFF8E0)],
             ),
           ),
-          child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
             children: [
               KidsAppHeader(
-                title: ' Learning Journey ',
+                title: 'Learning Journey',
                 onBackPress: () => Navigator.pop(context),
               ),
-              const SizedBox(height: 20),
-              _buildStreakCard(),
-              const SizedBox(height: 20),
-              _buildWeeklyOverview(),
-              const SizedBox(height: 20),
-              _buildProgressSection(),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  children: [
+                    const SizedBox(height: 20),
+                    _buildStreakCard(),
+                    const SizedBox(height: 20),
+                    _buildWeeklyOverview(),
+                    const SizedBox(height: 20),
+                    _buildProgressSection(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
