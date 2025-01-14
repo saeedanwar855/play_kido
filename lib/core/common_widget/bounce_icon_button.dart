@@ -14,7 +14,7 @@ class BounceIconButton extends StatefulWidget {
   final Color color;
 
   @override
-  _BounceIconButtonState createState() => _BounceIconButtonState();
+  State<BounceIconButton> createState() => _BounceIconButtonState();
 }
 
 class _BounceIconButtonState extends State<BounceIconButton> with SingleTickerProviderStateMixin {

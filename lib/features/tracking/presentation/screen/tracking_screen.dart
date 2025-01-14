@@ -1,9 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
-
 // class TrackingScreen extends StatelessWidget {
 //   const TrackingScreen({super.key});
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -32,9 +30,7 @@
 //                   fontFamily: 'ComicSans',
 //                 ),
 //               ),
-
 //               const SizedBox(height: 10),
-
 //               Column(
 //                 children: [
 //                   const Text(
@@ -64,9 +60,7 @@
 //                   ),
 //                 ],
 //               ),
-
 //               const SizedBox(height: 30),
-
 //               Row(
 //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                 children: [
@@ -90,9 +84,7 @@
 //                   ),
 //                 ],
 //               ),
-
 //               const SizedBox(height: 10),
-
 //               // Progress Bars
 //               _buildProgressBar(
 //                 context,
@@ -135,12 +127,10 @@
 //       ),
 //     );
 //   }
-
 //   List<Widget> _buildWeeklyBars() {
 //     final days = ['sun', 'mon', 'tue', 'wed', 'thus', 'fri', 'sat'];
 //     final heights = [0.3, 0.5, 0.4, 0.4, 0.8, 0.6, 0.3];
 //     final emojis = ['😊', '😄', '😃', '😊', '🤪', '😁', '🙂'];
-
 //     return List.generate(
 //       7,
 //       (index) => Column(
@@ -179,7 +169,6 @@
 //       ),
 //     );
 //   }
-
 //   Widget _buildProgressBar(
 //     BuildContext context,
 //     String title,
@@ -264,7 +253,6 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
-import 'package:lottie/lottie.dart'; // Add this package for animations
 
 class TrackingScreen extends StatefulWidget {
   const TrackingScreen({super.key});

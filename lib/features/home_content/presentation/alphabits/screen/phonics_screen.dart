@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
   bool isPlaying = false;
 
   int currentAbbrivativeIndex = 0;
-
+  int currentIndex = 0;
   Timer? _animationTimer;
 
   @override
@@ -133,9 +132,15 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                     child: PageView.builder(
                       controller: _pageController,
                       itemCount: model.length,
+                      onPageChanged: (index) {
+                        log('Current page index: $index');
+                        log('Current Abbr index: $currentAbbrivativeIndex');
+                        setState(() {
+                          currentIndex = index;
+                        });
+                      },
                       itemBuilder: (context, index) {
                         final letter = model[index];
-                        final currentAbbrivative = letter.abbreviation[currentAbbrivativeIndex];
                         return Column(
                           children: [
                             Container(
@@ -166,7 +171,7 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                                       ),
                                       const SizedBox(width: 20),
                                       Text(
-                                        currentAbbrivative.name,
+                                        letter.abbreviation[currentAbbrivativeIndex].name,
                                         style: TextStyle(
                                           color: AppColors.darkText,
                                           fontSize: SizeConfig.getHeight(4),
@@ -179,8 +184,9 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                                 ],
                               ),
                             ),
+                            const SizedBox(height: 80),
                             SizedBox(
-                              height: SizeConfig.getHeight(40),
+                              height: SizeConfig.getHeight(30),
                               child: CarouselSlider(
                                 carouselController: _carouselController,
                                 items: letter.abbreviation.asMap().entries.map((entry) {
@@ -189,16 +195,16 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                                     margin: const EdgeInsets.symmetric(horizontal: 5),
                                     child: Image.asset(
                                       abbr.picture,
-                                      fit: BoxFit.fitHeight,
+                                      fit: BoxFit.contain,
                                       width: MediaQuery.of(context).size.width,
-                                      height: SizeConfig.getHeight(
-                                        50,
-                                      ),
+                                      // height: SizeConfig.getHeight(
+                                      //   50,
+                                      // ),
                                     ),
                                   );
                                 }).toList(),
                                 options: CarouselOptions(
-                                  height: SizeConfig.getHeight(60),
+                                  height: SizeConfig.getHeight(50),
                                   enlargeCenterPage: true,
                                   enableInfiniteScroll: false,
                                   initialPage: currentAbbrivativeIndex,
@@ -227,15 +233,19 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
                     GameVolumeButton(
                       onTap: () {
                         if (!isPlaying) {
-                          _playLetterSequence(model[currentAbbrivativeIndex]);
+                          _playLetterSequence(
+                            model[currentIndex],
+                          );
                         }
                       },
                     ),
                     InteractiveButton(
                       buttonText: 'Next',
                       ontap: () {
-                        _pageController.animateToPage(
-                          currentAbbrivativeIndex + 1,
+                        setState(() {
+                          currentAbbrivativeIndex = 0;
+                        });
+                        _pageController.nextPage(
                           duration: const Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
@@ -260,123 +270,3 @@ class _PhonicsScreenState extends State<PhonicsScreen> with SingleTickerProvider
     super.dispose();
   }
 }
-// Future<void> _playLetterSequence(PhonicsModel letter, int pageIndex) async {
-//   if (isPlaying) return;
-
-//   try {
-//     setState(() {
-//       isPlaying = true;
-//       currentAbbrivativeIndex = 0;
-//     });
-
-//     final soundPath = letter.sound.replaceAll('assets/', '');
-//     await _audioPlayer.play(AssetSource(soundPath));
-
-//     // Listen for audio completion
-//     _audioPlayer.onPlayerComplete.listen((_) {
-//       setState(() {
-//         isPlaying = false;
-//       });
-      
-//       // Move to next letter if not at the end
-//       if (pageIndex < model.length - 1) {
-//         _pageController.animateToPage(
-//           pageIndex + 1,
-//           duration: const Duration(milliseconds: 500),
-//           curve: Curves.easeInOut,
-//         );
-//       }
-//     });
-
-//     _animationTimer?.cancel();
-//     var currentSecond = 0;
-
-//     _animationTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-//       currentSecond++;
-
-//       for (var i = 0; i < letter.abbreviation.length; i++) {
-//         final abbr = letter.abbreviation[i];
-//         if (currentSecond >= abbr.startTime && currentSecond <= abbr.endTime) {
-//           if (currentAbbrivativeIndex != i) {
-//             setState(() {
-//               currentAbbrivativeIndex = i;
-//             });
-//             _carouselController.animateToPage(
-//               i,
-//               duration: const Duration(milliseconds: 300),
-//               curve: Curves.easeInOut,
-//             );
-//           }
-//           break;
-//         }
-//       }
-
-//       if (currentSecond > letter.abbreviation.last.endTime) {
-//         timer.cancel();
-//       }
-//     });
-//   } catch (e) {
-//     log('Error playing audio: $e');
-//     setState(() {
-//       isPlaying = false;
-//     });
-//   }
-// }
-
-
-// PageView.builder(
-//   controller: _pageController,
-//   itemCount: model.length,
-//   onPageChanged: (index) {
-//     setState(() {
-//       currentAbbrivativeIndex = 0; // Reset abbreviation index on page change
-//     });
-//   },
-//   itemBuilder: (context, index) {
-//     final letter = model[index];
-//     final currentAbbrivative = letter.abbreviation[currentAbbrivativeIndex];
-//     return Column(
-//       // ... rest of your existing column code ...
-//     );
-//   },
-// ),
-
-
-// GameVolumeButton(
-//   onTap: () {
-//     if (!isPlaying) {
-//       final currentPage = _pageController.page?.round() ?? 0;
-//       _playLetterSequence(model[currentPage], currentPage);
-//     }
-//   },
-// ),\
-
-
-// void playSpecificLetter(int index) {
-//   if (index >= 0 && index < model.length) {
-//     _pageController.animateToPage(
-//       index,
-//       duration: const Duration(milliseconds: 500),
-//       curve: Curves.easeInOut,
-//     );
-    
-//     // Wait for page animation to complete before playing
-//     Future.delayed(const Duration(milliseconds: 600), () {
-//       if (!isPlaying) {
-//         _playLetterSequence(model[index], index);
-//       }
-//     });
-//   }
-// }
-
-
-// @override
-
-// void dispose() {
-//   _popController.dispose();
-//   _audioPlayer.dispose();
-//   _animationTimer?.cancel();
-//   _carouselController.stopAutoPlay();
-//   _pageController.dispose();
-//   super.dispose();
-// }

@@ -155,26 +155,26 @@ class KidsAppHeader extends StatelessWidget {
     );
   }
 
-  Widget _buildRightSection() {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: rightIcon != null
-          ? Image.asset(
-              rightIcon!,
-              height: 40,
-            )
-          : const SizedBox(width: 40, height: 40),
-    );
-  }
+  // Widget _buildRightSection() {
+  //   return Container(
+  //     padding: const EdgeInsets.all(10),
+  //     decoration: BoxDecoration(
+  //       color: Colors.white,
+  //       borderRadius: BorderRadius.circular(15),
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black.withOpacity(0.1),
+  //           blurRadius: 8,
+  //           offset: const Offset(0, 4),
+  //         ),
+  //       ],
+  //     ),
+  //     child: rightIcon != null
+  //         ? Image.asset(
+  //             rightIcon!,
+  //             height: 40,
+  //           )
+  //         : const SizedBox(width: 40, height: 40),
+  //   );
+  // }
 }

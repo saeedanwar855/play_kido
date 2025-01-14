@@ -325,7 +325,7 @@ List<Map<String, dynamic>> phonicsData = [
       },
       {
         'name': 'Guitar',
-        'picture': 'assets/phonics_things/g_guitar.png',
+        'picture': 'assets/phonics_things/g_guitor.png',
         'start_time': 09,
         'end_time': 12,
       },
@@ -418,9 +418,8 @@ List<Map<String, dynamic>> phonicsData = [
         'end_time': 12,
       },
       {
-        //here missinff li kick
         'name': 'kick',
-        'picture': 'assets/phonics_things/k_kitten.png',
+        'picture': 'assets/phonics_things/k_kick.png',
         'start_time': 13,
         'end_time': 17,
       },
@@ -508,14 +507,13 @@ List<Map<String, dynamic>> phonicsData = [
       },
       {
         'name': 'Octopus',
-        'picture': 'assets/phonics_things/o_octopus.png',
+        'picture': 'assets/phonics_things/o_octupus.png',
         'start_time': 09,
         'end_time': 12,
       },
       {
-        //missisbfg kick picture
         'name': 'order',
-        'picture': 'assets/phonics_things/o_octopus.png',
+        'picture': 'assets/phonics_things/o_order.png',
         'start_time': 13,
         'end_time': 17,
       },
@@ -596,9 +594,8 @@ List<Map<String, dynamic>> phonicsData = [
     'letter': 'assets/plain_alphabet/s.png',
     'abbreviation': [
       {
-        //missing thing
         'name': 'Seal',
-        'picture': 'assets/phonics_things/s_sun.png',
+        'picture': 'assets/phonics_things/s_seal.png',
         'start_time': 01,
         'end_time': 08,
       },
@@ -627,7 +624,6 @@ List<Map<String, dynamic>> phonicsData = [
         'start_time': 01,
         'end_time': 07,
       },
-      //turel missing
       {
         'name': 'Turtle',
         'picture': 'assets/phonics_things/t_teddy.png',
@@ -636,7 +632,7 @@ List<Map<String, dynamic>> phonicsData = [
       },
       {
         'name': 'Teddy',
-        'picture': 'assets/phonics_things/t_teddy.png',
+        'picture': 'assets/phonics_things/t_turtle.png',
         'start_time': 13,
         'end_time': 15,
       },

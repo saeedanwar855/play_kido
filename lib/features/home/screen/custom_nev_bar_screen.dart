@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:play_kido/features/charactor/presentation/screen/charactors_screen.dart';
 import 'package:play_kido/features/home/screen/custom_bottom_nev_bar.dart';
 import 'package:play_kido/features/home/screen/home_screen.dart';
-import 'package:play_kido/features/score/presentation/screen/score_screen.dart';
 import 'package:play_kido/features/tracking/presentation/screen/tracking_screen.dart';
 
 class CustomNevBarScreen extends StatefulWidget {

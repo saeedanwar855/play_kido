@@ -44,6 +44,7 @@ flutter:
     - assets/plain_alphabet/
     - assets/phonics_things/
     - assets/alphabit_audio_sounds/
+    - assets/numeric_en/
   
   fonts:
     - family: Poppins

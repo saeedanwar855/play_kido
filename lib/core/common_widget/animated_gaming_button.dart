@@ -4,7 +4,7 @@ class AnimatedGamingButton extends StatefulWidget {
   const AnimatedGamingButton({super.key});
 
   @override
-  _AnimatedGamingButtonState createState() => _AnimatedGamingButtonState();
+  State<AnimatedGamingButton> createState() => _AnimatedGamingButtonState();
 }
 
 class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
