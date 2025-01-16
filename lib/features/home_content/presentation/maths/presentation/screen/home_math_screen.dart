@@ -49,13 +49,16 @@ class _HomeMathScreenState extends State<HomeMathScreen> {
                             color: AppColors.darkText,
                           ),
                         ),
-                        Text(
-                          '+',
-                          style: TextStyle(
-                            fontSize: 70,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'ComicSans',
-                            color: AppColors.darkText,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            '+',
+                            style: TextStyle(
+                              fontSize: 70,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'ComicSans',
+                              color: AppColors.darkText,
+                            ),
                           ),
                         ),
                         Text(
@@ -67,13 +70,16 @@ class _HomeMathScreenState extends State<HomeMathScreen> {
                             color: AppColors.darkText,
                           ),
                         ),
-                        Text(
-                          '=',
-                          style: TextStyle(
-                            fontSize: 70,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'ComicSans',
-                            color: AppColors.darkText,
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            '=',
+                            style: TextStyle(
+                              fontSize: 70,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'ComicSans',
+                              color: AppColors.darkText,
+                            ),
                           ),
                         ),
                         Text(
@@ -92,32 +98,36 @@ class _HomeMathScreenState extends State<HomeMathScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset(
-                            'assets/icon/apple.jpg',
-                            height: 60,
-                            width: 60,
-                          ),
-                          const Text(
-                            '+',
-                            style: TextStyle(
-                              fontSize: 70,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'ComicSans',
-                              color: AppColors.darkText,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Column(
                             children: [
                               Image.asset(
                                 'assets/icon/apple.jpg',
                                 height: 60,
                                 width: 60,
                               ),
-                              Image.asset(
-                                'assets/icon/apple.jpg',
-                                height: 60,
-                                width: 60,
+                              const Text(
+                                '+',
+                                style: TextStyle(
+                                  fontSize: 70,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'ComicSans',
+                                  color: AppColors.darkText,
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/icon/apple.jpg',
+                                    height: 60,
+                                    width: 60,
+                                  ),
+                                  Image.asset(
+                                    'assets/icon/apple.jpg',
+                                    height: 60,
+                                    width: 60,
+                                  ),
+                                ],
                               ),
                             ],
                           ),

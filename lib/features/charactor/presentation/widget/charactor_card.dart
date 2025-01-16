@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:play_kido/core/common_widget/animated_pop_widget.dart';
 import 'package:play_kido/core/theme/app_colors.dart';
 import 'package:play_kido/features/charactor/data/model/charactor_model.dart';
-import 'package:play_kido/features/charactor/presentation/screen/charactors_screen.dart';
 
 class CharacterCard extends StatelessWidget {
   const CharacterCard({

@@ -11,12 +11,14 @@ class NumberCard extends StatefulWidget {
 class _NumberCardState extends State<NumberCard> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AnimatedGamingButton(),
+            AnimatedGamingButton(
+              onTap: () {},
+            ),
           ],
         ),
       ),

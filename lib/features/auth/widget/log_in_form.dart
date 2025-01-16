@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/auth/widget/login_button.dart';
-import 'package:play_kido/features/home/screen/home_screen.dart';
+import 'package:play_kido/features/home/presentation/screen/home_screen.dart';
 
 class KidLoginForm extends StatefulWidget {
   const KidLoginForm({super.key});

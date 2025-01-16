@@ -6,7 +6,7 @@ import 'package:play_kido/core/localization/language_bloc.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/core/theme/app_theme.dart';
 import 'package:play_kido/features/charactor/presentation/state_management/character_cubit.dart';
-import 'package:play_kido/features/home/screen/custom_nev_bar_screen.dart';
+import 'package:play_kido/features/home/presentation/screen/custom_nev_bar_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});

@@ -8,65 +8,11 @@ class CharacterCubit extends Cubit<CharacterState> {
     _initializeCharacters();
   }
 
-  final List<CharacterModel> _defaultCharacters = [
-    CharacterModel(
-      id: '1',
-      imagePath: 'assets/character/doremon.png',
-      name: 'Doraemon',
-      description: 'Your Helpful Friend',
-      price: 0, // Free starter character
-      isUnlocked: true,
-    ),
-    CharacterModel(
-      id: '2',
-      imagePath: 'assets/character/dragon.png',
-      name: 'Dragon',
-      isUnlocked: true,
-      description: 'Brave Explorer',
-      price: 100,
-    ),
-    CharacterModel(
-      id: '3',
-      imagePath: 'assets/character/pikachu.png',
-      name: 'Pikachu',
-      description: 'Fun Partner',
-      price: 150,
-    ),
-    CharacterModel(
-      id: '4',
-      imagePath: 'assets/character/chota_bheem.png',
-      name: 'Chota Bheem',
-      description: 'Strong Guide',
-      price: 200,
-    ),
-    CharacterModel(
-      id: '5',
-      imagePath: 'assets/character/captain_majid.png',
-      name: 'Captain Majid',
-      description: 'Strong Guide',
-      price: 250,
-    ),
-    CharacterModel(
-      id: '6',
-      imagePath: 'assets/character/oggy.png',
-      name: 'Oggy',
-      description: 'Strong Guide',
-      price: 300,
-    ),
-    CharacterModel(
-      id: '7',
-      imagePath: 'assets/character/singham.png',
-      name: 'Singham',
-      description: 'Strong Guide',
-      price: 350,
-    ),
-  ];
-
   Future<void> _initializeCharacters() async {
     try {
       // Here you would typically load saved character states from local storage
       // For now, we'll use the default list
-      final characters = _defaultCharacters;
+      final characters = defaultCharacters;
       emit(
         CharacterLoaded(
           selectedCharacter: characters.firstWhere((c) => c.isUnlocked),
@@ -87,7 +33,6 @@ class CharacterCubit extends Cubit<CharacterState> {
           characters: currentState.characters,
         ),
       );
-      // Save selected character to local storage
     }
   }
 
@@ -96,8 +41,6 @@ class CharacterCubit extends Cubit<CharacterState> {
       final currentState = state as CharacterLoaded;
       final characterIndex = currentState.characters.indexOf(character);
 
-      // Here you would implement your payment logic
-      // For demo, let's just unlock it
       final updatedCharacters = List<CharacterModel>.from(currentState.characters);
       updatedCharacters[characterIndex] = character.copyWith(isUnlocked: true);
 

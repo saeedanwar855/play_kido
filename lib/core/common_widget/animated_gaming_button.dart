@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AnimatedGamingButton extends StatefulWidget {
-  const AnimatedGamingButton({super.key});
+  const AnimatedGamingButton({
+    required this.onTap,
+    super.key,
+    this.height = 70,
+    this.width = 250,
+    this.buttomText = 'YAY, OK!',
+  });
+  final double width;
+  final double height;
+  final VoidCallback onTap;
+  final String buttomText;
 
   @override
   State<AnimatedGamingButton> createState() => _AnimatedGamingButtonState();
@@ -37,7 +47,7 @@ class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
         onTapDown: (_) => _controller.forward(), // Start animation on tap
         onTapUp: (_) {
           _controller.reverse(); // Reset animation on release
-          // Add your onTap logic here
+          widget.onTap();
         },
         onTapCancel: () => _controller.reverse(), // Handle tap cancellation
         child: AnimatedBuilder(
@@ -49,8 +59,8 @@ class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
             );
           },
           child: Container(
-            width: 250,
-            height: 70,
+            width: widget.width,
+            height: widget.height,
             decoration: BoxDecoration(
               color: const Color(0xFFffdf6d), // Outer base color
               borderRadius: BorderRadius.circular(22),
@@ -117,7 +127,7 @@ class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
                 // Button text
                 Center(
                   child: Text(
-                    'YAY, OK!',
+                    widget.buttomText,
                     style: TextStyle(
                       fontFamily: 'ComicSans', // Playful gaming font
                       fontSize: 26,

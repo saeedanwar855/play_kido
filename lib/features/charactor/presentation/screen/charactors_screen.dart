@@ -14,23 +14,6 @@ class CharactersScreen extends StatefulWidget {
 }
 
 class _CharactersScreenState extends State<CharactersScreen> {
-  List<CharacterData> characters = [
-    CharacterData('assets/character/doremon.png', 'Doraemon', 'Your Helpful Friend'),
-    CharacterData('assets/character/dragon.png', 'Dragon', 'Brave Explorer'),
-    CharacterData('assets/character/pikachu.png', 'Pikachu', 'Fun Partner'),
-    CharacterData('assets/character/chota_bheem.png', 'Chota Bheem', 'Strong Guide'),
-    CharacterData('assets/character/captain_majid.png', 'Captain Majid', 'Strong Guide'),
-    CharacterData('assets/character/oggy.png', 'Oggy', 'Strong Guide'),
-    CharacterData('assets/character/singham.png', 'Singham', 'Strong Guide'),
-    CharacterData('assets/character/doremon.png', 'Doraemon', 'Your Helpful Friend'),
-    CharacterData('assets/character/dragon.png', 'Dragon', 'Brave Explorer'),
-    CharacterData('assets/character/pikachu.png', 'Pikachu', 'Fun Partner'),
-    CharacterData('assets/character/chota_bheem.png', 'Chota Bheem', 'Strong Guide'),
-    CharacterData('assets/character/captain_majid.png', 'Captain Majid', 'Strong Guide'),
-    CharacterData('assets/character/oggy.png', 'Oggy', 'Strong Guide'),
-    CharacterData('assets/character/singham.png', 'Singham', 'Strong Guide'),
-  ];
-
   late PageController _pageController;
   int currentIndex = 0;
   bool isLeftPressed = false;
@@ -50,36 +33,40 @@ class _CharactersScreenState extends State<CharactersScreen> {
   }
 
   Future<void> changeCharacter({required bool next}) async {
-    if (next && currentIndex < characters.length - 1) {
-      setState(() {
-        isRightPressed = true;
-        currentIndex++;
-      });
-      await _pageController.animateToPage(
-        currentIndex,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-      Future.delayed(const Duration(milliseconds: 100), () {
+    if (context.read<CharacterCubit>().state is CharacterLoaded) {
+      final characters = (context.read<CharacterCubit>().state as CharacterLoaded).characters;
+
+      if (next && currentIndex < characters.length - 1) {
         setState(() {
-          isRightPressed = false;
+          isRightPressed = true;
+          currentIndex++;
         });
-      });
-    } else if (!next && currentIndex > 0) {
-      setState(() {
-        isLeftPressed = true;
-        currentIndex--;
-      });
-      await _pageController.animateToPage(
-        currentIndex,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-      Future.delayed(const Duration(milliseconds: 100), () {
+        await _pageController.animateToPage(
+          currentIndex,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+        Future.delayed(const Duration(milliseconds: 100), () {
+          setState(() {
+            isRightPressed = false;
+          });
+        });
+      } else if (!next && currentIndex > 0) {
         setState(() {
-          isLeftPressed = false;
+          isLeftPressed = true;
+          currentIndex--;
         });
-      });
+        await _pageController.animateToPage(
+          currentIndex,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+        Future.delayed(const Duration(milliseconds: 100), () {
+          setState(() {
+            isLeftPressed = false;
+          });
+        });
+      }
     }
   }
 
@@ -89,6 +76,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
       body: SafeArea(
         child: BlocBuilder<CharacterCubit, CharacterState>(
           builder: (context, state) {
+            final selectedCharacter = state is CharacterLoaded ? state.selectedCharacter : null;
             if (state is CharacterLoaded) {
               return Container(
                 decoration: const BoxDecoration(
@@ -109,17 +97,29 @@ class _CharactersScreenState extends State<CharactersScreen> {
                         children: [
                           PageView.builder(
                             controller: _pageController,
-                            physics: const NeverScrollableScrollPhysics(), // Disable swipe
-                            itemCount: characters.length,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: state.characters.length,
+                            onPageChanged: (index) {
+                              setState(() {
+                                currentIndex = index;
+                              });
+                            },
                             itemBuilder: (context, index) {
                               final character = state.characters[index];
                               return AnimatedContainer(
                                 duration: const Duration(milliseconds: 300),
+                                transform: Matrix4.identity()
+                                  ..scale(
+                                    isLeftPressed && index == currentIndex - 1 ||
+                                            isRightPressed && index == currentIndex + 1
+                                        ? 0.8
+                                        : 1.0,
+                                  ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Image.asset(
-                                      character.imagePath,
+                                      selectedCharacter?.imagePath ?? character.imagePath,
                                       height: SizeConfig.getHeight(30),
                                     ),
                                     const SizedBox(height: 10),
@@ -149,13 +149,21 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
-                                onTap: () => changeCharacter(next: false),
+                                onTap: () {
+                                  if (!isLeftPressed && !isRightPressed) {
+                                    changeCharacter(next: false);
+                                  }
+                                },
                                 child: Image.asset(
                                   'assets/icon/back_icon.png',
                                 ),
                               ),
                               GestureDetector(
-                                onTap: () => changeCharacter(next: true),
+                                onTap: () {
+                                  if (!isLeftPressed && !isRightPressed) {
+                                    changeCharacter(next: true);
+                                  }
+                                },
                                 child: Image.asset(
                                   'assets/icon/forward_icon.png',
                                   width: 100,
