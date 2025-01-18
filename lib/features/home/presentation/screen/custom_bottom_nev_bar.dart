@@ -35,8 +35,8 @@ class CustomBottomNav extends StatelessWidget {
         children: [
           _buildNavItem('Home', 'assets/icon/home.png', 0),
           _buildNavItem('Characters', 'assets/icon/characters.png', 1),
-          // _buildNavItem('Score', 'assets/icon/score.png', 2),
           _buildNavItem('Tracking', 'assets/icon/tracking.png', 2),
+          _buildNavItem('Score', 'assets/icon/score.png', 3),
         ],
       ),
     );

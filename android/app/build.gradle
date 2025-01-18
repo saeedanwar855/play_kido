@@ -77,21 +77,24 @@ android {
 
     flavorDimensions "default"
     productFlavors { 
-        production {
-            dimension "default"
-            applicationIdSuffix ""
-            manifestPlaceholders = [appName: "Play Kido"]
-        }
-        staging {
-            dimension "default"
-            applicationIdSuffix ".stg"
-            manifestPlaceholders = [appName: "[STG] Play Kido"]
-        }
-        development {
-            dimension "default"
-            applicationIdSuffix ".dev"
-            manifestPlaceholders = [appName: "[DEV] Play Kido"]
-        }
+         production {
+        dimension "default"
+        applicationIdSuffix ""
+        manifestPlaceholders = [appName: "Play Kido"]
+        signingConfig signingConfigs.release  // Add this line
+    }
+    staging {
+        dimension "default"
+        applicationIdSuffix ".stg"
+        manifestPlaceholders = [appName: "[STG] Play Kido"]
+        signingConfig signingConfigs.release  // Add this line
+    }
+    development {
+        dimension "default"
+        applicationIdSuffix ".dev"
+        manifestPlaceholders = [appName: "[DEV] Play Kido"]
+        signingConfig signingConfigs.release  // Add this line
+    }
     }
 
     buildTypes {

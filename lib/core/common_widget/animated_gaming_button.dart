@@ -87,11 +87,11 @@ class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
                   bottom: 10,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFFE082),
+                      color: const Color(0xFFfdcd28),
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
-                          color: Color(0xFFf9a825),
+                          color: Color(0xfffecb803),
                           offset: Offset(0, 3),
                           blurRadius: 6,
                         ),

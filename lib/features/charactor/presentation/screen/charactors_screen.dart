@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:play_kido/core/common_widget/bouncing_widget.dart';
+import 'package:play_kido/core/common_widget/vertical_bounce_back.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/features/charactor/data/model/charactor_model.dart';
 import 'package:play_kido/features/charactor/presentation/state_management/character_cubit.dart';
@@ -106,42 +108,34 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             },
                             itemBuilder: (context, index) {
                               final character = state.characters[index];
-                              return AnimatedContainer(
-                                duration: const Duration(milliseconds: 300),
-                                transform: Matrix4.identity()
-                                  ..scale(
-                                    isLeftPressed && index == currentIndex - 1 ||
-                                            isRightPressed && index == currentIndex + 1
-                                        ? 0.8
-                                        : 1.0,
-                                  ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image.asset(
+                              return Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  VerticalBounceWidget(
+                                    child: Image.asset(
                                       selectedCharacter?.imagePath ?? character.imagePath,
                                       height: SizeConfig.getHeight(30),
                                     ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      character.name,
-                                      style: const TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.deepPurple,
-                                        fontFamily: 'ComicSans',
-                                      ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    character.name,
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.deepPurple,
+                                      fontFamily: 'ComicSans',
                                     ),
-                                    Text(
-                                      character.description,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.deepPurple,
-                                        fontFamily: 'ComicSans',
-                                      ),
+                                  ),
+                                  Text(
+                                    character.description,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.deepPurple,
+                                      fontFamily: 'ComicSans',
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               );
                             },
                           ),
@@ -192,7 +186,7 @@ class _CharactersScreenState extends State<CharactersScreen> {
                             child: GridView.builder(
                               itemCount: state.characters.length,
                               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
+                                crossAxisCount: 3,
                                 crossAxisSpacing: 16,
                                 mainAxisSpacing: 16,
                               ),

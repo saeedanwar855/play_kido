@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/common_widget/animated_pop_widget.dart';
+import 'package:play_kido/core/common_widget/bouncing_widget.dart';
+import 'package:play_kido/core/common_widget/vertical_bounce_back.dart';
 import 'package:play_kido/core/theme/app_colors.dart';
 import 'package:play_kido/features/charactor/data/model/charactor_model.dart';
 
@@ -34,15 +36,18 @@ class CharacterCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: cardColor,
           shape: BoxShape.circle,
         ),
-        child: AnimatedTapIcon(
+        child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(
-            character.imagePath,
-            height: 100,
+          child: BouncingWidget(
+            child: Image.asset(
+              character.imagePath,
+              height: 100,
+            ),
           ),
         ),
       ),

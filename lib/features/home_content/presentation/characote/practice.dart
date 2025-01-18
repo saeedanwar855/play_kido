@@ -1,14 +1,10 @@
 // import 'dart:math';
-
 // import 'package:flutter/material.dart';
-
 // class ComplicatedPhysics extends StatefulWidget {
 //   const ComplicatedPhysics({super.key});
-
 //   @override
 //   State<ComplicatedPhysics> createState() => _ComplicatedPhysicsState();
 // }
-
 // class _ComplicatedPhysicsState extends State<ComplicatedPhysics>
 //     with SingleTickerProviderStateMixin {
 //   bool isClick = false;
@@ -17,11 +13,9 @@
 //   late AnimationController _animationController;
 //   double baseTime = 0.001;
 //   double accel = 40000;
-
 //   @override
 //   void initState() {
 //     super.initState();
-
 //     _animationController = AnimationController(
 //       vsync: this,
 //       duration: const Duration(milliseconds: 16),
@@ -36,7 +30,6 @@
 //             //   print("${ball.yVel}, ${ball.yPos}");
 //             //   //ball.outVel();
 //             // }
-
 //             if (!collapse &&
 //                 (ball.yVel.abs() * _animationController.value * baseTime +
 //                         ball.yPos +
@@ -50,7 +43,6 @@
 //               ball.outVel();
 //               return;
 //             }
-
 //             ball
 //               ..addYvel(baseTime * accel)
 //               ..subYpos(0.5 * accel * pow(baseTime, 2) - ball.yVel * baseTime)
@@ -66,13 +58,11 @@
 //         }
 //       });
 //   }
-
 //   @override
 //   void dispose() {
 //     _animationController.dispose();
 //     super.dispose();
 //   }
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -117,30 +107,24 @@
 //     );
 //   }
 // }
-
 // class _paint extends CustomPainter {
 //   _paint({
 //     required this.ballPath,
 //   });
 //   final Path ballPath;
-
 //   @override
 //   void paint(Canvas canvas, Size size) {
 //     final paint = Paint()
 //       ..color = Colors.brown
 //       ..style = PaintingStyle.stroke
 //       ..strokeWidth = 2;
-
 //     final path = Path();
 //     path.addPath(ballPath, Offset.zero);
-
 //     canvas.drawPath(path, paint);
 //   }
-
 //   @override
 //   bool shouldRepaint(CustomPainter oldDelegate) => true;
 // }
-
 // class myBall {
 //   myBall.origin() {
 //     xPos = 100;
@@ -168,52 +152,40 @@
 //   late double ballRad;
 //   late Path draw;
 //   double baseTime = 0.002;
-
 //   void addXpos(double x) {
 //     xPos += x;
 //   }
-
 //   void subXpos(double x) {
 //     xPos -= x;
 //   }
-
 //   void addYpos(double y) {
 //     yPos += y;
 //   }
-
 //   void subYpos(double y) {
 //     yPos -= y;
 //   }
-
 //   void addXvel(double x) {
 //     xVel += x;
 //   }
-
 //   void subXvel(double x) {
 //     xVel -= x;
 //   }
-
 //   void addYvel(double y) {
 //     yVel += y;
 //   }
-
 //   void subYvel(double y) {
 //     yVel -= y;
 //   }
-
 //   void mulXvel(double v) {
 //     xVel *= v;
 //   }
-
 //   void mulYvel(double v) {
 //     yVel *= v;
 //   }
-
 //   void stop() {
 //     xVel = 0;
 //     yVel = 0;
 //   }
-
 //   void outVel() {
 //     if (yVel.abs() < 500) {
 //       yVel = 0;
@@ -222,19 +194,16 @@
 //       xVel = 0;
 //     }
 //   }
-
 //   void setPosition(double x, double y) {
 //     xPos = x;
 //     yPos = y;
 //   }
-
 //   bool isBallRegion(double checkX, double checkY) {
 //     if ((pow(xPos - checkX, 2) + pow(yPos - checkY, 2)) <= pow(ballRad, 2)) {
 //       return true;
 //     }
 //     return false;
 //   }
-
 //   void updateDraw() {
 //     draw = Path();
 //     for (var i = 0; i < ballRad - 1; i++) {
@@ -249,7 +218,6 @@
 //       );
 //     }
 //   }
-
 //   void updateAnimation(double animationValue) {
 //     draw = Path();
 //     for (var i = 0; i < ballRad - 1; i++) {
@@ -463,15 +431,15 @@ class DoraemonPainter extends CustomPainter {
   final double size;
 
   @override
-  void paint(Canvas canvas, Size canvasSize) {
+  void paint(Canvas canvas, Size size) {
     if (image != null) {
       canvas.drawImageRect(
         image!,
         Rect.fromLTWH(0, 0, image!.width.toDouble(), image!.height.toDouble()),
         Rect.fromCenter(
           center: position,
-          width: size,
-          height: size,
+          width: size.width,
+          height: size.height,
         ),
         Paint(),
       );

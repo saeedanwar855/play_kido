@@ -5,6 +5,7 @@ import 'package:play_kido/features/home_content/presentation/characote/practice.
 import 'package:play_kido/features/home_content/presentation/maths/presentation/screen/home_math_screen.dart';
 import 'package:play_kido/features/home_content/presentation/numbers/screen/number_screen.dart';
 import 'package:play_kido/features/home_content/presentation/shapes/presentation/screen/home_shape_screen.dart';
+import 'package:play_kido/features/quiz/presentation/screen/quiz_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
   const SubjectsGrid({super.key});
@@ -71,8 +72,11 @@ class SubjectsGrid extends StatelessWidget {
               Navigator.push(
                 context,
                 // MaterialPageRoute<AlphabitsScreen>(builder: (context) => const HomeShapeScreen()),
+                // MaterialPageRoute<AlphabitsScreen>(
+                //   builder: (context) => const DoraemonPhysics(),
+                // ),
                 MaterialPageRoute<AlphabitsScreen>(
-                  builder: (context) => const DoraemonPhysics(),
+                  builder: (context) => const HomeShapeScreen(),
                 ),
               );
             },
