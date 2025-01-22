@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabits_screen.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/phonics_screen.dart';
-import 'package:play_kido/features/home_content/presentation/characote/practice.dart';
 import 'package:play_kido/features/home_content/presentation/maths/presentation/screen/home_math_screen.dart';
 import 'package:play_kido/features/home_content/presentation/numbers/screen/number_screen.dart';
 import 'package:play_kido/features/home_content/presentation/shapes/presentation/screen/home_shape_screen.dart';
-import 'package:play_kido/features/quiz/presentation/screen/quiz_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
   const SubjectsGrid({super.key});

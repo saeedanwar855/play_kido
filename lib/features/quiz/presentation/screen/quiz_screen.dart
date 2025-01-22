@@ -8,7 +8,13 @@ import 'package:play_kido/features/quiz/presentation/widget/audio_play_time.dart
 import 'package:play_kido/features/quiz/presentation/widget/options_widget.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  const QuizScreen({
+    required this.questions,
+    required this.startIndex,
+    super.key,
+  });
+  final List<Map<String, dynamic>> questions;
+  final int startIndex;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -19,11 +25,14 @@ class _QuizScreenState extends State<QuizScreen> {
   late QuizQuestionModel currentQuestion;
   late List<String> userAnswer;
   int currentIndex = 0;
-  dynamic player;
+  late AudioPlayerExample player;
+
+  late List<Map<String, dynamic>> quizQuestions;
 
   @override
   void initState() {
     super.initState();
+    quizQuestions = widget.questions;
     player = AudioPlayerExample();
     loadQuestion();
   }
@@ -44,8 +53,11 @@ class _QuizScreenState extends State<QuizScreen> {
       showCompletionDialog(
         context,
         lessonNumber: '${currentQuestionIndex + 1}',
-        userName: 'John Doe',
+        message: 'John Doe',
         reward: 10,
+        onTap: () {
+          Navigator.pop(context);
+        },
       );
     }
   }

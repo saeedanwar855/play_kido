@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:play_kido/core/common_widget/bouncing_widget.dart';
 import 'package:play_kido/core/common_widget/vertical_bounce_back.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/features/charactor/data/model/charactor_model.dart';

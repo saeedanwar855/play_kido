@@ -215,6 +215,30 @@ List<Map<String, dynamic>> alphabetQuiz = [
         'audio': 'assets/alphabit_audio_sounds/k_Letter.mp3',
       },
       {
+        'type': 'sound_matching',
+        'questionType': 'Which letter makes this sound?',
+        'question': 'assets/alphabit_audio_sounds/l_Letter.mp3',
+        'answer': 'L',
+        'options': ['L', 'M', 'N', 'O'],
+        'visual': 'assets/plain_alphabet/l.png',
+      },
+      {
+        'type': 'starting_letter',
+        'questionType': 'What letter does this word start with?',
+        'question': 'assets/phonics_things/m_monkey.png',
+        'answer': 'M',
+        'options': ['M', 'N', 'O', 'P'],
+        'audio': 'assets/alphabit_audio_sounds/m_Letter.mp3',
+      },
+      {
+        'type': 'recognition',
+        'questionType': 'Choose the letter',
+        'question': 'assets/plain_alphabet/n.png',
+        'answer': 'N',
+        'options': ['N', 'O', 'P', 'Q'],
+        'audio': 'assets/alphabit_audio_sounds/n_Letter.mp3',
+      },
+      {
         'type': 'sequence',
         'questionType': 'What comes next?',
         'question': 'K L M N _',
@@ -236,14 +260,77 @@ List<Map<String, dynamic>> alphabetQuiz = [
         'answer': 'P',
         'options': ['P', 'Q', 'R', 'S'],
         'audio': 'assets/alphabit_audio_sounds/p_Letter.mp3',
+      },
+      {
+        'type': 'sound_matching',
+        'questionType': 'Which letter makes this sound?',
+        'question': 'assets/alphabit_audio_sounds/q_Letter.mp3',
+        'answer': 'Q',
+        'options': ['Q', 'R', 'S', 'T'],
+        'visual': 'assets/plain_alphabet/q.png',
+      },
+      {
+        'type': 'starting_letter',
+        'questionType': 'What letter does this word start with?',
+        'question': 'assets/phonics_things/r_rainbow.png',
+        'answer': 'R',
+        'options': ['R', 'S', 'T', 'P'],
+        'audio': 'assets/alphabit_audio_sounds/r_Letter.mp3',
+      },
+      {
+        'type': 'recognition',
+        'questionType': 'Choose the letter',
+        'question': 'assets/plain_alphabet/s.png',
+        'answer': 'S',
+        'options': ['S', 'P', 'R', 'T'],
+        'audio': 'assets/alphabit_audio_sounds/s_Letter.mp3',
+      },
+      {
+        'type': 'sequence',
+        'questionType': 'What comes next?',
+        'question': 'P Q R S _',
+        'answer': 'T',
+        'options': ['T', 'U', 'V', 'W'],
+        'audio': 'assets/alphabit_audio_sounds/t_Letter.mp3',
       }
     ],
   },
-
   // Group U-Z
   {
     'letters': 'U-Z',
     'questions': [
+      {
+        'type': 'recognition',
+        'questionType': 'Choose the letter',
+        'question': 'assets/plain_alphabet/u.png',
+        'answer': 'U',
+        'options': ['U', 'V', 'W', 'X'],
+        'audio': 'assets/alphabit_audio_sounds/u_Letter.mp3',
+      },
+      {
+        'type': 'sound_matching',
+        'questionType': 'Which letter makes this sound?',
+        'question': 'assets/alphabit_audio_sounds/v_Letter.mp3',
+        'answer': 'V',
+        'options': ['V', 'W', 'X', 'Y'],
+        'visual': 'assets/plain_alphabet/v.png',
+      },
+      {
+        'type': 'starting_letter',
+        'questionType': 'What letter does this word start with?',
+        'question': 'assets/phonics_things/w_watermelon.png',
+        'answer': 'W',
+        'options': ['W', 'X', 'Y', 'Z'],
+        'audio': 'assets/alphabit_audio_sounds/w_Letter.mp3',
+      },
+      {
+        'type': 'recognition',
+        'questionType': 'Choose the letter',
+        'question': 'assets/plain_alphabet/x.png',
+        'answer': 'X',
+        'options': ['X', 'Y', 'Z', 'U'],
+        'audio': 'assets/alphabit_audio_sounds/x_Letter.mp3',
+      },
       {
         'type': 'sequence',
         'questionType': 'What comes next?',
@@ -251,7 +338,42 @@ List<Map<String, dynamic>> alphabetQuiz = [
         'answer': 'Y',
         'options': ['Y', 'Z', 'A', 'B'],
         'audio': 'assets/alphabit_audio_sounds/y_Letter.mp3',
+      },
+      {
+        'type': 'recognition',
+        'questionType': 'Choose the letter',
+        'question': 'assets/plain_alphabet/y.png',
+        'answer': 'Y',
+        'options': ['Y', 'X', 'Z', 'W'],
+        'audio': 'assets/alphabit_audio_sounds/y_Letter.mp3',
+      },
+      {
+        'type': 'sequence',
+        'questionType': 'What comes next?',
+        'question': 'V W X Y _',
+        'answer': 'Z',
+        'options': ['Z', 'A', 'B', 'C'],
+        'audio': 'assets/alphabit_audio_sounds/z_Letter.mp3',
       }
     ],
   }
 ];
+
+class AlphabetQuizModel {
+  const AlphabetQuizModel({
+    required this.type,
+    required this.questionType,
+    required this.question,
+    required this.answer,
+    required this.options,
+    required this.audio,
+    this.visual,
+  });
+  final String type;
+  final String questionType;
+  final String question;
+  final String answer;
+  final List<String> options;
+  final String audio;
+  final String? visual;
+}

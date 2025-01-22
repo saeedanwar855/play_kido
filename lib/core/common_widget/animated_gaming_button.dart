@@ -91,7 +91,7 @@ class _AnimatedGamingButtonState extends State<AnimatedGamingButton>
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: const [
                         BoxShadow(
-                          color: Color(0xfffecb803),
+                          color: Color(0xffecb803),
                           offset: Offset(0, 3),
                           blurRadius: 6,
                         ),

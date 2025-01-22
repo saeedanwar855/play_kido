@@ -5,8 +5,9 @@ import 'package:play_kido/core/size_config/size_config.dart';
 void showCompletionDialog(
   BuildContext context, {
   required String lessonNumber,
-  required String userName,
+  required String message,
   required int reward,
+  required VoidCallback onTap,
 }) {
   showDialog<Dialog>(
     context: context,
@@ -37,7 +38,7 @@ void showCompletionDialog(
                 children: [
                   const SizedBox(height: 20),
                   Text(
-                    'Good job, $userName!',
+                    message,
                     style: const TextStyle(
                       fontSize: 24,
                       fontFamily: 'ComicSans',
@@ -76,9 +77,7 @@ void showCompletionDialog(
                   AnimatedGamingButton(
                     width: SizeConfig.getWidth(70),
                     height: SizeConfig.getHeight(7),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    onTap: onTap,
                   ),
                 ],
               ),
