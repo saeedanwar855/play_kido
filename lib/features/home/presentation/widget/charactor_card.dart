@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:play_kido/features/charactor/presentation/screen/charactors_screen.dart';
+import 'package:play_kido/features/charactor/data/model/model.dart';
 
 class CharacterCard extends StatelessWidget {
   const CharacterCard({

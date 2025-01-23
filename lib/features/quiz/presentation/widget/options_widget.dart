@@ -19,7 +19,6 @@ class OptionWidget extends StatefulWidget {
 
 class _OptionWidgetState extends State<OptionWidget> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -27,9 +26,6 @@ class _OptionWidgetState extends State<OptionWidget> with SingleTickerProviderSt
     _controller = AnimationController(
       duration: const Duration(milliseconds: 100),
       vsync: this,
-    );
-    _animation = Tween<double>(begin: 1, end: 0.95).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
   }
 
