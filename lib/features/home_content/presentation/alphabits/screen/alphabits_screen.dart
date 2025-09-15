@@ -6,6 +6,7 @@ import 'package:play_kido/features/home_content/data/alphabits_model/alphabits_s
 import 'package:play_kido/features/home_content/presentation/alphabits/screen/alphabit_view_screen.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/game_volume_button.dart';
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
+import 'package:play_kido/features/alphabet_game/presentation/screen/trace_letter_game_screen.dart';
 
 class AlphabitsScreen extends StatefulWidget {
   const AlphabitsScreen({super.key});
@@ -57,6 +58,18 @@ class _AlphabitsScreenState extends State<AlphabitsScreen> {
               title: 'Alphabets',
               onBackPress: () => Navigator.pop(context),
               rightIcon: 'assets/icon/rewards_icon.png',
+              rightAction: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<TraceLetterGameScreen>(
+                    builder: (context) => const TraceLetterGameScreen(
+                      letter: 'A',
+                      word: 'APPLE',
+                      animalIcon: 'assets/icon/apple_icon.png',
+                    ),
+                  ),
+                );
+              },
             ),
             Expanded(
               child: GridView.builder(

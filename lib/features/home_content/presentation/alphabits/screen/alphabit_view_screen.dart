@@ -7,6 +7,7 @@ import 'package:play_kido/features/home_content/presentation/alphabits/widgets/g
 import 'package:play_kido/features/home_content/presentation/alphabits/widgets/header_widget.dart';
 import 'package:play_kido/features/quiz/data/model/alphabit_quiz.dart';
 import 'package:play_kido/features/quiz/presentation/screen/alphabit_quiz_screen.dart';
+import 'package:play_kido/features/alphabet_game/presentation/screen/trace_letter_game_screen.dart';
 
 class AlphabitViewScreen extends StatefulWidget {
   const AlphabitViewScreen({super.key});
@@ -134,15 +135,46 @@ class _AlphabitViewScreenState extends State<AlphabitViewScreen> with TickerProv
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: InteractiveButton(
-                  buttonText: 'Next Word',
-                  ontap: () {
-                    attendQuiz(currentIndex);
-                    controller.nextPage(
-                      duration: const Duration(microseconds: 3),
-                      curve: Curves.bounceInOut,
-                    );
-                  },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: InteractiveButton(
+                          buttonText: 'Trace Letter',
+                          ontap: () {
+                            final currentLetter = alphabitModel[currentIndex];
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute<TraceLetterGameScreen>(
+                                builder: (context) => TraceLetterGameScreen(
+                                  letter: currentLetter.alphabit.split('/').last.split('.').first.toUpperCase(),
+                                  word: currentLetter.alphabit.split('/').last.split('.').first.toUpperCase() + ' WORD',
+                                  animalIcon: 'assets/character/cute_rabbit.png',
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: InteractiveButton(
+                          buttonText: 'Next Word',
+                          ontap: () {
+                            attendQuiz(currentIndex);
+                            controller.nextPage(
+                              duration: const Duration(microseconds: 3),
+                              curve: Curves.bounceInOut,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

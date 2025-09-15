@@ -7,11 +7,13 @@ class KidsAppHeader extends StatelessWidget {
     super.key,
     this.rightIcon,
     this.isBack = false,
+    this.rightAction,
   });
   final String title;
   final VoidCallback onBackPress;
   final String? rightIcon;
   final bool isBack;
+  final VoidCallback? rightAction;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class KidsAppHeader extends StatelessWidget {
         children: [
           if (isBack) _buildBackButton() else const SizedBox(),
           _buildTitle(),
-          // _buildRightSection(),
+          if (rightIcon != null) _buildRightSection(),
           const SizedBox(),
         ],
       ),
@@ -155,26 +157,29 @@ class KidsAppHeader extends StatelessWidget {
     );
   }
 
-  // Widget _buildRightSection() {
-  //   return Container(
-  //     padding: const EdgeInsets.all(10),
-  //     decoration: BoxDecoration(
-  //       color: Colors.white,
-  //       borderRadius: BorderRadius.circular(15),
-  //       boxShadow: [
-  //         BoxShadow(
-  //           color: Colors.black.withOpacity(0.1),
-  //           blurRadius: 8,
-  //           offset: const Offset(0, 4),
-  //         ),
-  //       ],
-  //     ),
-  //     child: rightIcon != null
-  //         ? Image.asset(
-  //             rightIcon!,
-  //             height: 40,
-  //           )
-  //         : const SizedBox(width: 40, height: 40),
-  //   );
-  // }
+  Widget _buildRightSection() {
+    return GestureDetector(
+      onTap: rightAction,
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.1),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: rightIcon != null
+            ? Image.asset(
+                rightIcon!,
+                height: 40,
+              )
+            : const SizedBox(width: 40, height: 40),
+      ),
+    );
+  }
 }

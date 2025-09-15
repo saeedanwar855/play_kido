@@ -15,71 +15,74 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          children: [
-            BlocBuilder<CharacterCubit, CharacterState>(
-              builder: (context, state) {
-                return Container(
-                  width: SizeConfig.screenWidth,
-                  height: SizeConfig.screenHeight,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                        'assets/icon/bg.jpeg',
+        child: SizedBox(
+          width: SizeConfig.screenWidth,
+          child: Stack(
+            children: [
+              BlocBuilder<CharacterCubit, CharacterState>(
+                builder: (context, state) {
+                  return Container(
+                    width: SizeConfig.screenWidth,
+                    height: SizeConfig.screenHeight,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          'assets/icon/bg.jpeg',
+                        ),
                       ),
                     ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Stack(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(top: 80),
-                            child: SubjectsGrid(),
-                          ),
-                          KidsAppHeader(
-                            title: ' Home',
-                            onBackPress: () => Navigator.pop(context),
-                          ),
-                        ],
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        child: Image.asset(
-                          'assets/icon/grass.png',
-                          width: SizeConfig.getWidth(100),
+                    child: Stack(
+                      children: [
+                        Stack(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 80),
+                              child: SubjectsGrid(),
+                            ),
+                            KidsAppHeader(
+                              title: ' Home',
+                              onBackPress: () => Navigator.pop(context),
+                            ),
+                          ],
                         ),
-                      ),
-                      Positioned(
-                        bottom: 10,
-                        right: 40,
-                        child: VerticalBounceWidget(
-                          // duration: const Duration(milliseconds: 900),
+                        Positioned(
+                          bottom: 0,
                           child: Image.asset(
-                            state.selectedCharacter?.imagePath ??
-                                'assets/character/captain_majid.png',
-                            height: SizeConfig.getHeight(30),
-                            width: SizeConfig.getWidth(30),
+                            'assets/icon/grass.png',
+                            width: SizeConfig.getWidth(100),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-            const Positioned(
-              bottom: 10,
-              left: 0,
-              right: 0,
-              child: WalkingDogAnimation(
-                width: 150,
-                height: 150,
-                duration: Duration(seconds: 10),
+                        Positioned(
+                          bottom: 10,
+                          right: 40,
+                          child: VerticalBounceWidget(
+                            // duration: const Duration(milliseconds: 900),
+                            child: Image.asset(
+                              state.selectedCharacter?.imagePath ??
+                                  'assets/character/captain_majid.png',
+                              height: SizeConfig.getHeight(30),
+                              width: SizeConfig.getWidth(30),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
-            ),
-          ],
+              const Positioned(
+                bottom: 10,
+                left: 0,
+                right: 0,
+                child: WalkingDogAnimation(
+                  width: 150,
+                  height: 150,
+                  duration: Duration(seconds: 10),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

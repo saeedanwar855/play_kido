@@ -4,6 +4,7 @@ import 'package:play_kido/features/home_content/presentation/alphabits/screen/ph
 import 'package:play_kido/features/home_content/presentation/maths/presentation/screen/home_math_screen.dart';
 import 'package:play_kido/features/home_content/presentation/numbers/screen/number_screen.dart';
 import 'package:play_kido/features/home_content/presentation/shapes/presentation/screen/home_shape_screen.dart';
+import 'package:play_kido/features/alphabet_game/presentation/screen/trace_letter_game_screen.dart';
 
 class SubjectsGrid extends StatelessWidget {
   const SubjectsGrid({super.key});
@@ -16,6 +17,7 @@ class SubjectsGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 15,
         crossAxisSpacing: 15,
+        childAspectRatio: 1.2,
         children: [
           _buildSubjectCard(
             onTap: () {
@@ -27,6 +29,24 @@ class SubjectsGrid extends StatelessWidget {
             'Alphabets',
             'assets/icon/abcds.jpg',
             const Color(0xFF49B3FF),
+            context,
+          ),
+          _buildSubjectCard(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<TraceLetterGameScreen>(
+                  builder: (context) => const TraceLetterGameScreen(
+                    letter: 'G',
+                    word: 'GORILLA',
+                    animalIcon: 'assets/character/goofy1.png',
+                  ),
+                ),
+              );
+            },
+            'Trace Letters',
+            'assets/icon/abc.png',
+            const Color(0xFFFF6B6B),
             context,
           ),
           _buildSubjectCard(
