@@ -1,5 +1,3 @@
-import 'package:animated_widgets/animated_widgets.dart';
-import 'package:animated_widgets/widgets/shake_animated_widget.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/common_widget/animated_pop_widget.dart';

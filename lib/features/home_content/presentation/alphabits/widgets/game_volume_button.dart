@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/common_widget/animated_pop_widget.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
