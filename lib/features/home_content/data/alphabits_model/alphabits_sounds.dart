@@ -1,3 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+class AlphabitsSoundsModel {
+  String alphabit;
+  String alphabitSound;
+
+  AlphabitsSoundsModel({
+    required this.alphabit,
+    required this.alphabitSound,
+  });
+}
+
 List<String> letterSounds = [
   'assets/audio_alphabet/A.wav',
   'assets/audio_alphabet/B.wav',
@@ -26,3 +38,40 @@ List<String> letterSounds = [
   'assets/audio_alphabet/Y.wav',
   'assets/audio_alphabet/Z.wav',
 ];
+
+List<String> alphabit = [
+  'assets/letters/a.png',
+  'assets/letters/b.png',
+  'assets/letters/c.png',
+  'assets/letters/d.png',
+  'assets/letters/e.png',
+  'assets/letters/f.png',
+  'assets/letters/g.png',
+  'assets/letters/h.png',
+  'assets/letters/i.png',
+  'assets/letters/j.png',
+  'assets/letters/k.png',
+  'assets/letters/l.png',
+  'assets/letters/m.png',
+  'assets/letters/n.png',
+  'assets/letters/o.png',
+  'assets/letters/p.png',
+  'assets/letters/q.png',
+  'assets/letters/r.png',
+  'assets/letters/s.png',
+  'assets/letters/t.png',
+  'assets/letters/u.png',
+  'assets/letters/v.png',
+  'assets/letters/w.png',
+  'assets/letters/x.png',
+  'assets/letters/y.png',
+  'assets/letters/z.png',
+];
+
+List<AlphabitsSoundsModel> alphabitModel = List.generate(
+  alphabit.length,
+  (index) => AlphabitsSoundsModel(
+    alphabit: alphabit[index],
+    alphabitSound: letterSounds[index],
+  ),
+);

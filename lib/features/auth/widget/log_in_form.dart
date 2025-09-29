@@ -1,7 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:play_kido/core/common_widget/app_common_button.dart';
 import 'package:play_kido/features/auth/widget/login_button.dart';
-import 'package:play_kido/features/home/screen/home_screen.dart';
+import 'package:play_kido/features/home/presentation/screen/home_screen.dart';
 
 class KidLoginForm extends StatefulWidget {
   const KidLoginForm({super.key});
@@ -156,12 +157,14 @@ class _KidLoginFormState extends State<KidLoginForm> with SingleTickerProviderSt
                 });
                 setState(() => _isLoading = true);
 
-                await Future.delayed(const Duration(seconds: 1));
+                unawaited(Future.delayed(const Duration(seconds: 1)));
                 setState(() => _isLoading = false);
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute<HomePage>(builder: (context) => const HomePage()),
-                );
+                if (context.mounted) {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute<HomePage>(builder: (context) => const HomePage()),
+                  );
+                }
               },
             ),
           ),
@@ -170,28 +173,28 @@ class _KidLoginFormState extends State<KidLoginForm> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildEnhancedSkipButton() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: TextButton.icon(
-        onPressed: () {},
-        icon: const Icon(
-          Icons.play_circle_outline,
-          color: Colors.purple,
-          size: 30,
-        ),
-        label: const Text(
-          'Start Playing!',
-          style: TextStyle(
-            color: Colors.purple,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildEnhancedSkipButton() {
+  //   return Container(
+  //     decoration: BoxDecoration(
+  //       color: Colors.white.withOpacity(0.3),
+  //       borderRadius: BorderRadius.circular(30),
+  //     ),
+  //     child: TextButton.icon(
+  //       onPressed: () {},
+  //       icon: const Icon(
+  //         Icons.play_circle_outline,
+  //         color: Colors.purple,
+  //         size: 30,
+  //       ),
+  //       label: const Text(
+  //         'Start Playing!',
+  //         style: TextStyle(
+  //           color: Colors.purple,
+  //           fontSize: 18,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }

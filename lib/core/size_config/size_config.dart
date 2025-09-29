@@ -9,8 +9,8 @@ class SizeConfig {
   static late MediaQueryData textScaleFactor;
 
   static void init(BuildContext context) {
-    screenWidth = MediaQuery.of(context).size.width;
-    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.sizeOf(context).width;
+    screenHeight = MediaQuery.sizeOf(context).height;
     blockWidth = screenWidth / 100;
     blockHeight = screenHeight / 100;
 

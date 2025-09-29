@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_kido/core/theme/app_colors.dart';
 import 'package:play_kido/features/auth/screen/log_in_screen.dart';
-import 'package:play_kido/features/home/screen/home_screen.dart';
+import 'package:play_kido/features/home/presentation/screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

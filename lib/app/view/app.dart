@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:play_kido/core/localization/language_bloc.dart';
 import 'package:play_kido/core/size_config/size_config.dart';
 import 'package:play_kido/core/theme/app_theme.dart';
-import 'package:play_kido/features/home/screen/custom_nev_bar_screen.dart';
+import 'package:play_kido/features/charactor/presentation/state_management/character_cubit.dart';
+import 'package:play_kido/features/home/presentation/screen/custom_nev_bar_screen.dart';
+import 'package:play_kido/l10n/arb/app_localizations.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -20,6 +21,9 @@ class App extends StatelessWidget {
             BlocProvider<LanguageBloc>(
               create: (context) =>
                   LanguageBloc()..add(ChangeLanguage(const Locale('en'))), // Initialize Bloc
+            ),
+            BlocProvider(
+              create: (context) => CharacterCubit(),
             ),
           ],
           child: BlocBuilder<LanguageBloc, LanguageState>(

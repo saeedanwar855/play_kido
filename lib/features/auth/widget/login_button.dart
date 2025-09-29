@@ -10,7 +10,7 @@ class KidLoginButton extends StatefulWidget {
   final bool isLoading;
 
   @override
-  _KidLoginButtonState createState() => _KidLoginButtonState();
+  State<KidLoginButton> createState() => _KidLoginButtonState();
 }
 
 class _KidLoginButtonState extends State<KidLoginButton> with SingleTickerProviderStateMixin {

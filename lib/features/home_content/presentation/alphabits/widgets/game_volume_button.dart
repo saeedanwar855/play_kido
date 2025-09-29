@@ -16,14 +16,26 @@ class GameVolumeButton extends StatefulWidget {
 
 class _GameVolumeButtonState extends State<GameVolumeButton> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -31,12 +43,12 @@ class _GameVolumeButtonState extends State<GameVolumeButton> with SingleTickerPr
     return AnimatedTapIcon(
       onTap: widget.onTap,
       child: AnimatedBuilder(
-        animation: _controller,
+        animation: _animation,
         builder: (context, child) {
           return Transform.scale(
-            scale: 1.0 + (_controller.value * 0.2),
+            scale: 1.0 + (_animation.value * 0.1),
             child: Container(
-              width: SizeConfig.getWidth(25),
+              width: SizeConfig.getWidth(22),
               height: SizeConfig.getHeight(12),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,

@@ -12,7 +12,7 @@ class PlayfulButton extends StatefulWidget {
   final Color color;
 
   @override
-  _PlayfulButtonState createState() => _PlayfulButtonState();
+  State<PlayfulButton> createState() => _PlayfulButtonState();
 }
 
 class _PlayfulButtonState extends State<PlayfulButton> with SingleTickerProviderStateMixin {
